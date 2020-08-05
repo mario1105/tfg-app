@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import Login from "./Login";
 
 const mockData = {
@@ -43,14 +44,16 @@ const LoginContainer = () => {
     }
 
     return (
-        <Login
-            email={email}
-            password={password}
-            currentUser={currentUser}
-            handleEmailChange={handleEmailChange}
-            handlePasswordChange={handlePasswordChange}
-            handleOnSubmit={handleOnSubmit}
-        />
+        currentUser?.email
+            ? <Redirect to={{ pathname: '/dashboard' }} />
+            : <Login
+                email={email}
+                password={password}
+                currentUser={currentUser}
+                handleEmailChange={handleEmailChange}
+                handlePasswordChange={handlePasswordChange}
+                handleOnSubmit={handleOnSubmit}
+            />
     )
 }
 
