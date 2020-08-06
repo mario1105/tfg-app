@@ -1,22 +1,26 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
+import * as R from 'ramda'
 import Login from "./Login";
 
 const mockData = {
     users: [{
         email: 'test@test.com',
         password: 'test123',
-        role: 'administrator'
+        role: 'administrator',
+        name: 'Mario'
     },
         {
             email: 'test@test.com',
             password: 'test123',
-            role: 'administrator'
+            role: 'administrator',
+            name: 'Mario'
         },
         {
             email: 'test@test.com',
             password: 'test123',
-            role: 'administrator'
+            role: 'administrator',
+            name: 'Mario'
         }]
 }
 const LoginContainer = () => {
@@ -31,7 +35,7 @@ const LoginContainer = () => {
         users.forEach(user => {
             if(!currentUser){
                 if (user.email === email && user.password === password)
-                    currentUser = {...currentUser, email, password, role: user.role}
+                    currentUser = {...currentUser, email, password, ...user}
                 else
                     currentUser = null
             }
@@ -45,7 +49,7 @@ const LoginContainer = () => {
 
     return (
         currentUser?.email
-            ? <Redirect to={{ pathname: '/dashboard' }} />
+            ? <Redirect to={{ pathname: '/dashboard', state: R.dissoc('password', currentUser) }} />
             : <Login
                 email={email}
                 password={password}

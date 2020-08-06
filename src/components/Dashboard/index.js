@@ -1,11 +1,13 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
+import Dashboard from "./Dashboard";
 
-const Dashboard = () => {
+const DashboardContainer = ({ location }) => {
+    const user = location.state
+
     return (
-        <div>
-            Dashboard
-        </div>
+        user ? <Dashboard user={user} /> : <Redirect to={{ pathname: '/login' }} />
     )
 }
 
-export default Dashboard
+export default DashboardContainer
