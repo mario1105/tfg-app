@@ -7,19 +7,19 @@ const mockData = {
     users: [{
         email: 'test@test.com',
         password: 'test123',
-        role: 'administrator',
+        role: 'admin',
         name: 'Mario'
     },
         {
             email: 'test@test.com',
             password: 'test123',
-            role: 'administrator',
+            role: 'associate',
             name: 'Mario'
         },
         {
             email: 'test@test.com',
             password: 'test123',
-            role: 'administrator',
+            role: 'user',
             name: 'Mario'
         }]
 }

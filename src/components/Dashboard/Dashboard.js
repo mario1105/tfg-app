@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    Typography, makeStyles, Input, FormControl, InputLabel, FormHelperText, Button
+    Typography, makeStyles, Button
 } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
@@ -14,11 +14,40 @@ const useStyles = makeStyles(theme => ({
 
 const Dashboard = ({ user }) => {
     const { email, role, name } = user
+    const registerDisabled = !(role === 'admin')
     const classes = useStyles()
 
     return (
         <div className={classes.dashboardBox}>
-            <Typography color="primary" variant={'h5'} style={{marginBottom: '2em'}}>Welcome {name}!</Typography>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography color="primary" variant={'h5'} style={{marginBottom: '2em'}}>Welcome {name}!</Typography>
+                <Button
+                    variant="contained"
+                    color="red"
+                    onClick={()=>null}
+                    style={{ height: '3em', backgroundColor: 'orange'}}
+                >
+                    Logout
+                </Button>
+            </div>
+            <Button
+                fullWidth
+                variant="contained"
+                color="primary"
+                onClick={()=>null}
+                style={{ marginBottom: '2em' }}
+            >
+                Employee list
+            </Button>
+            <Button
+                fullWidth
+                disabled={registerDisabled}
+                variant="contained"
+                color="primary"
+                onClick={()=>null}
+            >
+                Register
+            </Button>
         </div>
     )
 }
