@@ -12,8 +12,10 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const Dashboard = ({ user }) => {
-    const { email, role, name } = user
+
+
+const Dashboard = ({ user, handleNextRoute }) => {
+    const { role, name } = user
     const registerDisabled = !(role === 'admin')
     const classes = useStyles()
 
@@ -24,7 +26,7 @@ const Dashboard = ({ user }) => {
                 <Button
                     variant="contained"
                     color="red"
-                    onClick={()=>null}
+                    onClick={()=> handleNextRoute('login')}
                     style={{ height: '3em', backgroundColor: 'orange'}}
                 >
                     Logout
@@ -34,7 +36,7 @@ const Dashboard = ({ user }) => {
                 fullWidth
                 variant="contained"
                 color="primary"
-                onClick={()=>null}
+                onClick={()=> handleNextRoute('employees')}
                 style={{ marginBottom: '2em' }}
             >
                 Employee list
@@ -44,7 +46,7 @@ const Dashboard = ({ user }) => {
                 disabled={registerDisabled}
                 variant="contained"
                 color="primary"
-                onClick={()=>null}
+                onClick={()=> handleNextRoute('register')}
             >
                 Register
             </Button>
