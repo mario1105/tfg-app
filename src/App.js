@@ -2,7 +2,7 @@ import React from 'react'
 import Login from "./modules/Login"
 import Dashboard from "./modules/Dashboard"
 import RegisterForm from "./modules/RegisterForm"
-import EmployeeList from "./modules/EmployeeList"
+import EmployeeList from "./modules/Employees"
 import { theme } from './theme'
 import { ThemeProvider } from '@material-ui/core'
 

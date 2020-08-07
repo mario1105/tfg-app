@@ -1,9 +1,16 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
-import { Button} from '@material-ui/core';
+import { Button, makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles(() => ({
+    button: {
+        height: '2em', backgroundColor: 'gold'
+    }
+}))
 
 
-const ReturnButton = ({ previousRoute, user }) => {
+const ReturnButton = ({ previousRoute, user, ...props }) => {
+    const classes = useStyles()
     const [isClicked, setIsClicked] = useState(false)
 
     const handleIsClicked = () => setIsClicked(true)
@@ -14,9 +21,11 @@ const ReturnButton = ({ previousRoute, user }) => {
         isClicked
         ?  <Redirect to={{ pathname: `/${previousRoute}`, state: user }} />
         :  <Button
+            className={classes.button}
             variant="contained"
             onClick={()=> handleIsClicked('login')}
             style={{ height: '2em', backgroundColor: 'gold'}}
+            {...props}
         >
             Return to {formattedRoute}
         </Button>
