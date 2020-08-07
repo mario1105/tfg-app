@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 import { Redirect } from 'react-router-dom'
 import Dashboard from "./Dashboard";
 
-const DashboardRouter = ({ nextRoute }) =>
+const DashboardRouter = ({ nextRoute, user }) =>
     nextRoute
-        ? <Redirect to={{ pathname: `/${nextRoute}` }} />
+        ? <Redirect to={{ pathname: `/${nextRoute}`, state: user }} />
         : <Redirect to={{ pathname: '/login' }} />
 
 const DashboardContainer = ({ location }) => {
@@ -17,7 +17,7 @@ const DashboardContainer = ({ location }) => {
     return (
         user && !nextRoute
             ? <Dashboard user={user} nextRoute={nextRoute} handleNextRoute={handleNextRoute} />
-            : <DashboardRouter nextRoute={nextRoute} />
+            : <DashboardRouter nextRoute={nextRoute} user={user} />
     )
 }
 

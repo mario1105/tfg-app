@@ -25,7 +25,6 @@ const Dashboard = ({ user, handleNextRoute }) => {
                 <Typography color="primary" variant={'h5'} style={{marginBottom: '2em'}}>Welcome {name}!</Typography>
                 <Button
                     variant="contained"
-                    color="red"
                     onClick={()=> handleNextRoute('login')}
                     style={{ height: '3em', backgroundColor: 'orange'}}
                 >

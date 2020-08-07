@@ -1,8 +1,8 @@
 import React from 'react'
-import Login from "./components/Login"
-import Dashboard from "./components/Dashboard"
-import RegisterForm from "./components/RegisterForm"
-import EmployeeList from "./components/EmployeeList"
+import Login from "./modules/Login"
+import Dashboard from "./modules/Dashboard"
+import RegisterForm from "./modules/RegisterForm"
+import EmployeeList from "./modules/EmployeeList"
 import { theme } from './theme'
 import { ThemeProvider } from '@material-ui/core'
 
