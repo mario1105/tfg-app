@@ -8,7 +8,7 @@ const EmployeeList = ({ employeeList }) => {
     return (
         <>
             <TableRowHeaders
-                headerList={['Name', 'Email', 'Date of Birth', 'Phone number', 'Salary']}
+                headerList={['Name', 'Email', 'Date of Birth', 'Phone number', 'Salary', 'Actions']}
             />
             {employeeList.map(
                 (
