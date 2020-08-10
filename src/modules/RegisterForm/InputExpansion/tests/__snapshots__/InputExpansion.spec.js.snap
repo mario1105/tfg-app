@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputExpansion renders as expected 1`] = `
+<WithStyles(ForwardRef(ExpansionPanel))
+  className="makeStyles-expansionPanelStyle-1"
+  classes={
+    Object {
+      "expanded": "makeStyles-expansionPanelExpandedStyle-2",
+    }
+  }
+  expanded={true}
+  onChange={[Function]}
+  onFocus={[Function]}
+>
+  <WithStyles(ForwardRef(ExpansionPanelSummary))
+    aria-controls="panel1d-content"
+    className="makeStyles-expansionPanelSummaryStyle-3"
+    classes={
+      Object {
+        "content": "makeStyles-expansionPanelSummaryContentStyle-5",
+        "expanded": "makeStyles-expansionPanelSummaryExpandedStyle-6",
+        "focused": "makeStyles-expansionPanelSummaryStyleFocused-4",
+      }
+    }
+    data-test-id="expansion-panel-summary"
+    expandIcon={
+      <Memo(HelpOutlineIcon)
+        style={
+          Object {
+            "color": "#2196f3",
+          }
+        }
+      />
+    }
+    id="panel1d-header"
+  >
+    <div
+      id="ChildrenMock"
+    />
+  </WithStyles(ForwardRef(ExpansionPanelSummary))>
+  <WithStyles(ForwardRef(ExpansionPanelDetails))
+    classes={
+      Object {
+        "root": "makeStyles-expansionPanelDetails-7",
+      }
+    }
+    onClick={[Function]}
+    onFocus={[Function]}
+  >
+    <WithStyles(ForwardRef(Typography))>
+      content
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(ExpansionPanelDetails))>
+</WithStyles(ForwardRef(ExpansionPanel))>
+`;
