@@ -1,7 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import EmployeeListItem from "./EmployeeListItem"
 
 const EmployeeListItemContainer = ({ name, email, dateOfBirth, phone, salary }) => {
+    const [editMode, setEditMode] = useState(false)
+
+    const handleEditMode = () => setEditMode(!editMode)
+
     return (
         <EmployeeListItem
             name={name}
@@ -9,6 +13,8 @@ const EmployeeListItemContainer = ({ name, email, dateOfBirth, phone, salary }) 
             dateOfBirth={dateOfBirth}
             phone={phone}
             salary={salary}
+            editMode={editMode}
+            handleEditMode={handleEditMode}
         />
     )
 }
