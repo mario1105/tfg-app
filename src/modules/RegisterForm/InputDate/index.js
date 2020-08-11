@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import {
-  Input, FormControl, InputLabel, makeStyles,
+  Input, FormControl, InputLabel, makeStyles, Typography
 } from '@material-ui/core';
-import PropTypes from 'prop-types';
-import Typography from 'components/Typography';
 
 const useStyles = makeStyles(() => ({
   formControlContainer: {
@@ -88,28 +86,12 @@ const InputDate = ({
           />
         </FormControl>
       </div>
-      <Typography variant="subtitle2" gutterBottom>
+      <Typography variant="subtitle2" gutterBottom style={{ color: 'white' }}>
         Date of Birth
       </Typography>
     </div>
 
   );
-};
-
-InputDate.propTypes = {
-  date: PropTypes.shape({
-    day: PropTypes.string,
-    month: PropTypes.string,
-    year: PropTypes.string
-  }),
-  errors: PropTypes.shape({
-    day: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    month: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    year: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  }),
-  handleFieldsChange: PropTypes.func,
-  handleFieldsErrors: PropTypes.func,
-  resetErrors: PropTypes.func,
 };
 
 export default InputDate;

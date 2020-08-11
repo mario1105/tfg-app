@@ -1,39 +1,39 @@
 import React from 'react';
 import {
-  makeStyles, Typography, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails
+  makeStyles, Typography, Accordion, AccordionSummary, AccordionDetails
 } from '@material-ui/core';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import { blue } from '@material-ui/core/colors';
-import PropTypes from 'prop-types';
 
 const setFocus = () => {
   document.getElementById('mobile-phone-input').focus();
 };
 
-const useStyles = makeStyles(() => ({
-  expansionPanelStyle: {
+const useStyles = makeStyles((theme) => ({
+  AccordionStyle: {
     boxShadow: 'none',
     '&:before': {
       content: 'none'
     },
   },
-  expansionPanelExpandedStyle: {
+  AccordionExpandedStyle: {
     margin: '0 !important',
     paddingBottom: '1em'
   },
-  expansionPanelSummaryStyle: {
+  AccordionSummaryStyle: {
     padding: 0,
+    backgroundColor: `${theme.app.background['300']} !important`
   },
-  expansionPanelSummaryStyleFocused: {
-    backgroundColor: 'transparent !important'
+  AccordionSummaryStyleFocused: {
+    backgroundColor: `${theme.app.background['300']} !important`
   },
-  expansionPanelSummaryContentStyle: {
+  AccordionSummaryContentStyle: {
     margin: '0 !important'
   },
-  expansionPanelSummaryExpandedStyle: {
+  AccordionSummaryExpandedStyle: {
     transform: 'none !important'
   },
-  expansionPanelDetails: {
+  AccordionDetails: {
     padding: 0
   }
 }));
@@ -43,48 +43,41 @@ const InputExpansion = ({
 }) => {
   const classes = useStyles();
   return (
-    <ExpansionPanel
-      className={classes.expansionPanelStyle}
+    <Accordion
+      className={classes.AccordionStyle}
       expanded={expanded}
       onChange={handleChange}
       onFocus={setFocus}
       classes={{
-        expanded: classes.expansionPanelExpandedStyle,
+        expanded: classes.AccordionExpandedStyle,
       }}
       {...props}
     >
-      <ExpansionPanelSummary
+      <AccordionSummary
         data-test-id="expansion-panel-summary"
-        className={classes.expansionPanelSummaryStyle}
+        className={classes.AccordionSummaryStyle}
         expandIcon={<HelpOutlineIcon style={{ color: blue[500] }} />}
         aria-controls="panel1d-content"
         id="panel1d-header"
         classes={{
-          content: classes.expansionPanelSummaryContentStyle,
-          expanded: classes.expansionPanelSummaryExpandedStyle,
-          focused: classes.expansionPanelSummaryStyleFocused,
+          content: classes.AccordionSummaryContentStyle,
+          expanded: classes.AccordionSummaryExpandedStyle,
+          focused: classes.AccordionSummaryStyleFocused,
         }}
       >
         {children}
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails
-        classes={{ root: classes.expansionPanelDetails }}
+      </AccordionSummary>
+      <AccordionDetails
+        classes={{ root: classes.AccordionDetails }}
         onFocus={() => null}
         onClick={() => null}
       >
         <Typography>
           {content}
         </Typography>
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+      </AccordionDetails>
+    </Accordion>
   );
-};
-
-InputExpansion.propTypes = {
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  children: PropTypes.node.isRequired,
-  expanded: PropTypes.bool,
-  handleChange: PropTypes.func,
 };
 
 export default InputExpansion;

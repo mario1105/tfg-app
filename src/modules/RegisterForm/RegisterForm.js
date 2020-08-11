@@ -1,25 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import * as R from 'ramda';
 import {
-  Grid, makeStyles, Input, FormControl, InputLabel, FormHelperText
+  Grid, makeStyles, Input, FormControl, InputLabel, FormHelperText, Typography, Button
 } from '@material-ui/core';
-import FlatCard from 'components/FlatCard';
-import Typography from 'components/Typography';
-import { useHelpInfoContext } from 'components/HelpInfoModal';
-import Button from 'components/Button';
-import appConfig from 'appConfig';
-import StaticLink from 'components/StaticLink';
-import Link from 'components/Link';
 import InputExpansion from './InputExpansion';
 import InputDate from './InputDate';
+import ReturnButton from "../../components/ReturnButton"
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: theme.app.background['300'],
     borderRadius: '20px',
     maxWidth: '25em',
-    margin: 'auto'
+    margin: 'auto',
   },
   form: {
     display: 'flex',
@@ -33,25 +26,19 @@ const useStyles = makeStyles(() => ({
 }));
 
 const RegisterForm = ({
-  userEmail, fields, errors, loading, confirmationView, requestError, handleFieldsChange, handleFieldsErrors, resetErrors, submitRegisterForm
+                        user, fields, errors, loading, confirmationView, requestError, handleFieldsChange, handleFieldsErrors, resetErrors, submitRegisterForm
 }) => {
-  const { handleOpenDialogWithTab } = useHelpInfoContext();
-
   const validationError = errors.email || errors.firstName || errors.lastName || errors.mobilePhone || errors.day || errors.month || errors.year;
   const emptyField = R.any((value) => value.length === 0)(R.values(fields));
 
   const classes = useStyles();
   return (
-    <Grid container style={{ marginTop: '2em' }} alignItems="center" direction="column">
-      <Grid item style={{ marginBottom: '1em' }}>
-        <FlatCard className={classes.card}>
+    <Grid className={classes.registerFormBox} container style={{ marginTop: '2em' }} alignItems="center" direction="column">
+      <Grid item className={classes.card} style={{ marginBottom: '1em' }}>
           {confirmationView
             ? (
               <Grid data-test-id="registration-completed-view" style={{ margin: '1em' }}>
-                <Typography variant="h5" color="secondary" fontWeight="bold" paragraph>Registration successfully completed</Typography>
-                <Typography variant="body1" paragraph>In order to start using {appConfig.appName}, you need to verify your email.</Typography>
-                <Typography variant="body1" paragraph>A verification link has been sent to your email account.</Typography>
-                <Typography data-test-id="registration-completed-view-email-text" variant="body1" color="primary" fontWeight="semiBold" style={{ marginTop: '1em' }}>{fields.email}</Typography>
+                <Typography variant="h5">Registration successfully completed</Typography>
               </Grid>
             )
             : (
@@ -61,8 +48,7 @@ const RegisterForm = ({
                   <Input
                     data-test-id="registration-form-email-input"
                     autoComplete="off"
-                    value={userEmail || fields.email}
-                    disabled={!!userEmail}
+                    value={fields.email}
                     onChange={handleFieldsChange('email')}
                     onBlur={() => handleFieldsErrors('email')}
                     onFocus={() => resetErrors('email')}
@@ -100,8 +86,7 @@ const RegisterForm = ({
                   data-test-id="registration-form-mobile-phone-expansion-field"
                   content={(
                     <Typography variant="subtitle2" component={'span'}>
-                      We require your phone number as an additional form of security, if you have any questions click
-                      <StaticLink data-test-id="registration-form-mobile-phone-expansion-field-here-link" style={{ display: 'inline' }} handler={() => handleOpenDialogWithTab(2)}> here</StaticLink>
+                      We require a Spanish phone number for additional contact details
                     </Typography>
                   )}
                 >
@@ -152,47 +137,13 @@ const RegisterForm = ({
                   >{requestError}
                   </Typography>
                 )}
+                <ReturnButton previousRoute="dashboard" user={user} style={{ marginTop: '2em' }} />
               </form>
             )
           }
-        </FlatCard>
-      </Grid>
-      <Grid item>
-        <Link to="/login">
-          Already a member? Sign in here
-        </Link>
       </Grid>
     </Grid>
-  );
-};
-
-RegisterForm.propTypes = {
-  userEmail: PropTypes.string,
-  fields: PropTypes.shape({
-    email: PropTypes.string,
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    mobilePhone: PropTypes.string,
-    day: PropTypes.string,
-    month: PropTypes.string,
-    year: PropTypes.string
-  }),
-  errors: PropTypes.shape({
-    email: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    firstName: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    lastName: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    mobilePhone: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    day: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    month: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-    year: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  }),
-  loading: PropTypes.bool,
-  confirmationView: PropTypes.bool,
-  requestError: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  handleFieldsChange: PropTypes.func,
-  handleFieldsErrors: PropTypes.func,
-  resetErrors: PropTypes.func,
-  submitRegisterForm: PropTypes.func,
-};
+  )
+}
 
 export default RegisterForm;

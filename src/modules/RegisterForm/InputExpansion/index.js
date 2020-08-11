@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import InputExpansion from './InputExpansion';
 
 
@@ -15,11 +14,6 @@ const InputExpansionContainer = ({ content, children, ...props }) => {
       {children}
     </InputExpansion>
   );
-};
-
-InputExpansionContainer.propTypes = {
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  children: PropTypes.node.isRequired
 };
 
 export default InputExpansionContainer;

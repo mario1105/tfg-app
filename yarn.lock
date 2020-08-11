@@ -1297,7 +1297,7 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@material-ui/core@^5.0.0-alpha.5":
+"@material-ui/core@^5.0.0-alpha.6":
   version "5.0.0-alpha.6"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-5.0.0-alpha.6.tgz#ace12510e1a9543ef7c8d5a0d32b7c78ef41e827"
   integrity sha512-htcTQpXj1PbQrqFH70UwW55hzydpuJ+WyHmJ6IXi5s747mY/Tzl7aTWtW2yYjI8DhgSvVSl5ldExskxeZb/J+A==
