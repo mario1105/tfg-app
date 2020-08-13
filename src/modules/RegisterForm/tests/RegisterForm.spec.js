@@ -1,9 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import RegisterForm from '../RegisterForm'
-import * as HelpInfoModal from '../../../components/HelpInfoModal'
 
 const defaultProps = {
+  user: {},
   fields: {
     email: 'mario.jimenez@theshopworks.com',
     firstName: 'Mario',
@@ -12,6 +12,7 @@ const defaultProps = {
     day: '11',
     month: '11',
     year: '1999',
+    salary: '50000'
   },
   errors: {
     email: false,
@@ -21,6 +22,7 @@ const defaultProps = {
     day: false,
     month: false,
     year: false,
+    salary: false,
   },
   loading: false,
   confirmationView: false,
@@ -42,14 +44,6 @@ const renderComponent = (newProps) => {
 
 let wrapper
 describe('RegisterForm', () => {
-  beforeEach(() => {
-    jest.spyOn(HelpInfoModal, 'useHelpInfoContext').mockImplementation(() => ({ handleOpenDialogWithTab: jest.fn() }))
-  })
-
-  afterEach(() => {
-    jest.restoreAllMocks()
-  })
-
   describe('when there are no errors', () => {
     beforeEach(() => {
       wrapper = renderComponent()
@@ -63,6 +57,7 @@ describe('RegisterForm', () => {
       expect(wrapper.find('[data-test-id~="registration-form-first-name-input"]').prop('value')).toBe(defaultProps.fields.firstName)
       expect(wrapper.find('[data-test-id~="registration-form-last-name-input"]').prop('value')).toBe(defaultProps.fields.lastName)
       expect(wrapper.find('[data-test-id~="registration-form-mobile-phone-input"]').prop('value')).toBe(defaultProps.fields.mobilePhone)
+      expect(wrapper.find('[data-test-id~="registration-form-salary-input"]').prop('value')).toBe(defaultProps.fields.salary)
     })
     it('passes the correct props to InputDate', () => {
       expect(wrapper.find('InputDate').prop('date')).toEqual({ day: defaultProps.fields.day, month: defaultProps.fields.month, year: defaultProps.fields.year })
@@ -83,6 +78,7 @@ describe('RegisterForm', () => {
           day: 'Day error',
           month: 'Month error',
           year: 'Year error',
+          salary: 'Salary error'
         },
       })).toMatchSnapshot()
     })

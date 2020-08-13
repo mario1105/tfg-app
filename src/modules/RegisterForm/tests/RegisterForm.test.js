@@ -1,18 +1,14 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { createMuiTheme } from '@material-ui/core';
 import { mount } from 'enzyme';
-import * as hocs from 'utils/hocs';
-import * as request from 'utils/request';
-
-import * as HelpInfoModal from 'components/HelpInfoModal';
-import flushPromises from 'utils/flushPromises';
-import RegisterFormContainer from '../RegisterFormContainer';
+import { theme } from '../../../theme'
+import employeesService from "../../../services/employeesService"
+import flushPromises from '../../../utils/flushPromises';
+import RegisterFormContainer from '../../RegisterForm';
 import {
   findFormRegisterButton,
   findRegistrationCompletedView,
-  findRegistrationFormSubmitError,
   findFormEmailInput,
   findFormEmailError,
   findFormFirstNameInput,
@@ -23,23 +19,24 @@ import {
   findFormMobilePhoneError,
   findFormMobilePhoneExpansionField,
   findFormMobilePhoneExpansionFieldPanelSummary,
-  findFormMobilePhoneExpansionFieldHereLink,
   findDateFieldDayFormControl,
   findDateFieldDayInput,
   findDateFieldMonthFormControl,
   findDateFieldMonthInput,
   findDateFieldYearFormControl,
   findDateFieldYearInput,
+  findFormSalaryInput,
+  findFormSalaryError
 } from './registerFormTestUtils';
 
-jest.mock('../service/apiEndpointBase', () => 'api-url');
+//jest.mock('../service/apiEndpointBase', () => 'api-url');
 
 const renderUi = () => mount(
-  <MemoryRouter>
-    <ThemeProvider theme={createMuiTheme()}>
-      <RegisterFormContainer />
-    </ThemeProvider>
-  </MemoryRouter>
+    <MemoryRouter>
+      <ThemeProvider theme={theme}>
+        <RegisterFormContainer location={{}} />
+      </ThemeProvider>
+    </MemoryRouter>
 );
 
 let wrapper;
@@ -47,8 +44,6 @@ describe('RegisterForm Integration Test', () => {
   const handleOpenDialogWithTab = jest.fn();
   beforeEach(() => {
     jest.useFakeTimers();
-    jest.spyOn(hocs, 'isMobile').mockReturnValue(false);
-    jest.spyOn(HelpInfoModal, 'useHelpInfoContext').mockImplementation(() => ({ handleOpenDialogWithTab }));
     jest.spyOn(document, 'getElementById').mockReturnValue({ focus: jest.fn() });
 
     wrapper = renderUi();
@@ -162,7 +157,7 @@ describe('RegisterForm Integration Test', () => {
       it('does not show any error when entering a valid phone number format', () => {
         findFormMobilePhoneInput(wrapper).simulate('change', {
           target: {
-            value: '+447123456789'
+            value: '612345678'
           },
         });
         findFormMobilePhoneInput(wrapper).simulate('blur');
@@ -172,7 +167,7 @@ describe('RegisterForm Integration Test', () => {
       it('shows an error when entering an invalid phone number format', () => {
         findFormMobilePhoneInput(wrapper).simulate('change', {
           target: {
-            value: '+449123456789'
+            value: '769834201'
           },
         });
         findFormMobilePhoneInput(wrapper).find('input').simulate('blur');
@@ -189,10 +184,6 @@ describe('RegisterForm Integration Test', () => {
         });
         it('shows the info message', () => {
           expect(findFormMobilePhoneExpansionFieldPanelSummary(wrapper).props()['aria-expanded']).toBe(true);
-        });
-        it('calls the open help modal handler when clicking on the here link', () => {
-          findFormMobilePhoneExpansionFieldHereLink(wrapper).simulate('click');
-          expect(handleOpenDialogWithTab).toHaveBeenCalledWith(2);
         });
       });
     });
@@ -318,16 +309,40 @@ describe('RegisterForm Integration Test', () => {
         });
       });
     });
+    describe('Salary', () => {
+      it('does not show any error by default', () => {
+        expect(findFormSalaryError(wrapper)).toHaveLength(0);
+      });
+      it('does not show any error when entering a valid last name', () => {
+        findFormSalaryInput(wrapper).simulate('change', {
+          target: {
+            value: '35000'
+          },
+        });
+        findFormSalaryInput(wrapper).simulate('blur');
+
+        expect(findFormSalaryError(wrapper)).toHaveLength(0);
+      });
+      it('shows an error when entering a wrong value', () => {
+        findFormSalaryInput(wrapper).simulate('change', {
+          target: {
+            value: '3a000'
+          },
+        });
+        findFormSalaryInput(wrapper).find('input').simulate('blur');
+
+        expect(findFormSalaryError(wrapper)).toHaveLength(1);
+      });
+    });
   });
-  describe('On Success', () => {
+  describe('Submit form', () => {
     beforeEach(() => {
-      jest.spyOn(request, 'default').mockReturnValue(Promise.resolve());
+      jest.spyOn(employeesService, 'registerEmployee').mockReturnValue(Promise.resolve());
     });
 
     afterEach(() => {
       jest.restoreAllMocks();
     });
-
     describe('when all the fields are filled and the Register button is clicked', () => {
       beforeEach(() => {
         findFormEmailInput(wrapper).simulate('change', {
@@ -365,7 +380,11 @@ describe('RegisterForm Integration Test', () => {
             value: '2000'
           },
         });
-
+        findFormSalaryInput(wrapper).simulate('change', {
+          target: {
+            value: '50000'
+          },
+        });
         findFormRegisterButton(wrapper).simulate('click');
       });
       describe('before loading', () => {
@@ -384,165 +403,6 @@ describe('RegisterForm Integration Test', () => {
 
         it('shows the registration completed view', () => {
           expect(findRegistrationCompletedView(wrapper)).toHaveLength(1);
-        });
-      });
-    });
-  });
-  describe('On Error', () => {
-    describe('when there is a generic error from the API', () => {
-      beforeEach(() => {
-        jest.spyOn(request, 'default').mockReturnValue(Promise.reject(Error()));
-      });
-
-      afterEach(() => {
-        jest.restoreAllMocks();
-      });
-
-      describe('when all the fields are filled and the Register button is clicked', () => {
-        beforeEach(() => {
-          findFormEmailInput(wrapper).simulate('change', {
-            target: {
-              value: 'mario.jimenez@theshopworks.com'
-            },
-          });
-          findFormFirstNameInput(wrapper).simulate('change', {
-            target: {
-              value: 'mario.jimenez-theshopworks.com'
-            },
-          });
-          findFormLastNameInput(wrapper).simulate('change', {
-            target: {
-              value: 'Jimenez'
-            },
-          });
-          findFormMobilePhoneInput(wrapper).simulate('change', {
-            target: {
-              value: '+44123456789'
-            },
-          });
-          findDateFieldDayInput(wrapper).simulate('change', {
-            target: {
-              value: '11'
-            },
-          });
-          findDateFieldMonthInput(wrapper).simulate('change', {
-            target: {
-              value: '12'
-            },
-          });
-          findDateFieldYearInput(wrapper).simulate('change', {
-            target: {
-              value: '2000'
-            },
-          });
-
-          findFormRegisterButton(wrapper).simulate('click');
-        });
-        describe('before loading', () => {
-          it('does not show the registration completed view', () => {
-            expect(findRegistrationCompletedView(wrapper)).toHaveLength(0);
-          });
-          it('shows the Register button disabled', () => {
-            expect(findFormRegisterButton(wrapper).props().disabled).toBe(true);
-          });
-        });
-        describe('after loading', () => {
-          beforeEach(async () => {
-            await flushPromises();
-            wrapper.update();
-          });
-
-          it('shows the generic error message', () => {
-            expect(findRegistrationFormSubmitError(wrapper).text().includes('There was an error, please try again')).toBe(true);
-          });
-        });
-      });
-    });
-    describe('when the email already exists', () => {
-      beforeEach(() => {
-        // eslint-disable-next-line prefer-promise-reject-errors
-        jest.spyOn(request, 'default').mockReturnValue(Promise.reject(
-          {
-            response:
-                  {
-                    json: () => Promise.resolve({
-                      errors: [
-                        {
-                          meta: {
-                            validation: {
-                              failed: {
-                                Okta: 'An object with this field already exists in the current organization'
-                              }
-                            }
-                          }
-                        }
-                      ]
-                    })
-                  }
-          }));
-      });
-
-      afterEach(() => {
-        jest.restoreAllMocks();
-      });
-
-      describe('when all the fields are filled and the Register button is clicked', () => {
-        beforeEach(() => {
-          findFormEmailInput(wrapper).simulate('change', {
-            target: {
-              value: 'mario.jimenez@theshopworks.com'
-            },
-          });
-          findFormFirstNameInput(wrapper).simulate('change', {
-            target: {
-              value: 'mario.jimenez-theshopworks.com'
-            },
-          });
-          findFormLastNameInput(wrapper).simulate('change', {
-            target: {
-              value: 'Jimenez'
-            },
-          });
-          findFormMobilePhoneInput(wrapper).simulate('change', {
-            target: {
-              value: '+44123456789'
-            },
-          });
-          findDateFieldDayInput(wrapper).simulate('change', {
-            target: {
-              value: '11'
-            },
-          });
-          findDateFieldMonthInput(wrapper).simulate('change', {
-            target: {
-              value: '12'
-            },
-          });
-          findDateFieldYearInput(wrapper).simulate('change', {
-            target: {
-              value: '2000'
-            },
-          });
-
-          findFormRegisterButton(wrapper).simulate('click');
-        });
-        describe('before loading', () => {
-          it('does not show the registration completed view', () => {
-            expect(findRegistrationCompletedView(wrapper)).toHaveLength(0);
-          });
-          it('shows the Register button disabled', () => {
-            expect(findFormRegisterButton(wrapper).props().disabled).toBe(true);
-          });
-        });
-        describe('after loading', () => {
-          beforeEach(async () => {
-            await flushPromises();
-            wrapper.update();
-          });
-
-          it('shows the email address already exists error message', () => {
-            expect(findRegistrationFormSubmitError(wrapper).text().includes('This email address already exists')).toBe(true);
-          });
         });
       });
     });

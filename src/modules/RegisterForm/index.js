@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import * as R from 'ramda'
 import RegisterForm from './RegisterForm'
 import validation from './validation'
+import employeesService from "../../services/employeesService"
 
 const RegisterFormContainer = ({location}) => {
     const user = location.state
@@ -30,8 +31,6 @@ const RegisterFormContainer = ({location}) => {
 
     const [loading, setLoading] = useState(false)
     const [confirmationView, setConfirmationView] = useState(false)
-    const [requestError, setRequestError] = useState(false)
-
 
     const handleFieldsChange = (prop) => (event) => setFields({ ...fields, [prop]: event.target.value })
 
@@ -41,26 +40,16 @@ const RegisterFormContainer = ({location}) => {
 
     const submitRegisterForm = async (e) => {
         e.preventDefault()
-        setRequestError(false)
 
         setLoading(true)
-        const options = {
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: 'POST',
-            body: JSON.stringify({
-                firstName: fields.firstName,
-                lastName: fields.lastName,
-                email: fields.email,
-                dateOfBirth: R.join('/', [fields.day, fields.month, fields.year]),
-                mobilePhone: fields.mobilePhone,
-                salary: fields.salary
-            })
-        }
-
-        await fetch(`http://localhost:3001/employees`, options)
+        await employeesService.registerEmployee({
+            firstName: fields.firstName,
+            lastName: fields.lastName,
+            email: fields.email,
+            dateOfBirth: R.join('/', [fields.day, fields.month, fields.year]),
+            mobilePhone: fields.mobilePhone,
+            salary: fields.salary
+        })
         setLoading(false)
         setConfirmationView(true)
     }
@@ -72,7 +61,6 @@ const RegisterFormContainer = ({location}) => {
             errors={errors}
             loading={loading}
             confirmationView={confirmationView}
-            requestError={requestError}
             handleFieldsChange={handleFieldsChange}
             handleFieldsErrors={handleFieldsErrors}
             resetErrors={resetErrors}

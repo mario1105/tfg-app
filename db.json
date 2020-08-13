@@ -74,6 +74,15 @@
       "mobilePhone": "602957389",
       "salary": "50000",
       "id": 6
+    },
+    {
+      "firstName": "Lucas",
+      "lastName": "Perez",
+      "email": "lucas@luctests.com",
+      "dateOfBirth": "19/06/1987",
+      "mobilePhone": "649284674",
+      "salary": "75000",
+      "id": 7
     }
   ]
 }

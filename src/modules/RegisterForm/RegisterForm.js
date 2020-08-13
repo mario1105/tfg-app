@@ -7,9 +7,9 @@ import InputExpansion from './InputExpansion';
 import InputDate from './InputDate';
 import ReturnButton from "../../components/ReturnButton"
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   card: {
-    backgroundColor: theme.app.background['300'],
+    backgroundColor: '#213b58',
     borderRadius: '20px',
     maxWidth: '25em',
     margin: 'auto',
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const RegisterForm = ({
-                        user, fields, errors, loading, confirmationView, requestError, handleFieldsChange, handleFieldsErrors, resetErrors, submitRegisterForm
+                        user, fields, errors, loading, confirmationView, handleFieldsChange, handleFieldsErrors, resetErrors, submitRegisterForm
 }) => {
   const validationError = errors.email || errors.firstName || errors.lastName || errors.mobilePhone || errors.day || errors.month || errors.year;
   const emptyField = R.any((value) => value.length === 0)(R.values(fields));
@@ -141,15 +141,6 @@ const RegisterForm = ({
                   onClick={submitRegisterForm}
                 >Register
                 </Button>
-                {requestError
-                && (
-                  <Typography
-                    data-test-id="registration-form-submit-error"
-                    style={{ display: 'flex', alignSelf: 'center' }}
-                    color="error"
-                  >{requestError}
-                  </Typography>
-                )}
                 <ReturnButton previousRoute="dashboard" user={user} style={{ marginTop: '2em' }} />
               </form>
             )
