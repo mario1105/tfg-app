@@ -7,7 +7,7 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: theme.app.background['300'],
         padding: theme.spacing(7),
         borderRadius: 10,
-        margin: '10em 15em 10em 15em',
+        margin: '10em',
         display: 'flex',
         flexDirection: 'column'
     }

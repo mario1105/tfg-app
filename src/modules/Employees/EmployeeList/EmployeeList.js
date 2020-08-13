@@ -3,25 +3,24 @@ import TableDataRowWrapper from "../../../components/TableDataRowWrapper"
 import TableRowHeaders from "../../../components/TableRowHeaders"
 import EmployeeListItemContainer from "./EmployeeListItem"
 
-
-const EmployeeList = ({ employeeList }) => {
+const EmployeeList = ({ employees, handleRemoveEmployee }) => {
     return (
         <>
             <TableRowHeaders
-                headerList={['Name', 'Email', 'Date of Birth', 'Phone number', 'Salary', 'Actions']}
+                headerList={['First Name', 'Last Name', 'Email', 'Date of Birth', 'Mobile phone', 'Salary', 'Actions']}
             />
-            {employeeList.map(
-                (
-                    { name, email, dateOfBirth, phone, salary },
-                    index
-                ) => (
-                    <TableDataRowWrapper key={index}>
+            {employees.map(
+                ({ id, firstName, lastName, email, dateOfBirth, mobilePhone, salary }) => (
+                    <TableDataRowWrapper key={id}>
                         <EmployeeListItemContainer
-                            name={name}
+                            id={id}
+                            firstName={firstName}
+                            lastName={lastName}
                             email={email}
                             dateOfBirth={dateOfBirth}
-                            phone={phone}
+                            mobilePhone={mobilePhone}
                             salary={salary}
+                            handleRemoveEmployee={handleRemoveEmployee}
                         />
                     </TableDataRowWrapper>
                 )

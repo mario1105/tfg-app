@@ -8,9 +8,10 @@ const useStyles = makeStyles(() => ({
     }
 }))
 
-const EmployeeListItem = ({ name, email, dateOfBirth, phone, salary, editMode, handleEditMode }) => {
+const EmployeeListItem = ({ parameters, handleOnChange, editMode, handleOnSubmit, handleEditMode, handleOnRemove }) => {
     const classes = useStyles()
-    const isAnyValueEmpty = R.any(value => !value.length, [name, email, dateOfBirth, phone, salary])
+    const { firstName, lastName, email, dateOfBirth, mobilePhone, salary } = parameters
+    const isAnyValueEmpty = R.any(value => !value.length, [firstName, lastName, email, dateOfBirth, mobilePhone, salary])
 
     return (
         <Grid container>
@@ -18,25 +19,46 @@ const EmployeeListItem = ({ name, email, dateOfBirth, phone, salary, editMode, h
                 {editMode
                     ? <FormControl  style={{ paddingRight: '38px' }}>
                         <Input
-                            data-test-id="employee-list-item-name"
+                            name="firstName"
+                            data-test-id="employee-list-item-first-name"
                             inputProps={{ style: { paddingTop: 0 } }}
-                            value={name}
+                            value={firstName}
                             disabled={false}
+                            onChange={handleOnChange}
                             onBlur={() => null}
                             onFocus={() => null}
                         />
                     </FormControl>
-                    : <Typography>{name}</Typography>
+                    : <Typography>{firstName}</Typography>
                 }
             </Grid>
             <Grid item xs align="left" className={classes.text}>
                 {editMode
                     ? <FormControl  style={{ paddingRight: '38px' }}>
                         <Input
+                            name="lastName"
+                            data-test-id="employee-list-item-last-name"
+                            inputProps={{ style: { paddingTop: 0 } }}
+                            value={lastName}
+                            disabled={false}
+                            onChange={handleOnChange}
+                            onBlur={() => null}
+                            onFocus={() => null}
+                        />
+                    </FormControl>
+                    : <Typography>{lastName}</Typography>
+                }
+            </Grid>
+            <Grid item xs align="left" className={classes.text}>
+                {editMode
+                    ? <FormControl  style={{ paddingRight: '38px' }}>
+                        <Input
+                            name="email"
                             data-test-id="employee-list-item-email"
                             inputProps={{ style: { paddingTop: 0 } }}
                             value={email}
                             disabled={false}
+                            onChange={handleOnChange}
                             onBlur={() => null}
                             onFocus={() => null}
                         />
@@ -48,10 +70,12 @@ const EmployeeListItem = ({ name, email, dateOfBirth, phone, salary, editMode, h
                 {editMode
                     ? <FormControl  style={{ paddingRight: '38px' }}>
                         <Input
+                            name="dateOfBirth"
                             data-test-id="employee-list-item-dateOfBirth"
                             inputProps={{ style: { paddingTop: 0 } }}
                             value={dateOfBirth}
                             disabled={false}
+                            onChange={handleOnChange}
                             onBlur={() => null}
                             onFocus={() => null}
                         />
@@ -63,25 +87,29 @@ const EmployeeListItem = ({ name, email, dateOfBirth, phone, salary, editMode, h
                 {editMode
                     ? <FormControl  style={{ paddingRight: '38px' }}>
                         <Input
+                            name="phone"
                             data-test-id="employee-list-item-phone"
                             inputProps={{ style: { paddingTop: 0 } }}
-                            value={phone}
+                            value={mobilePhone}
                             disabled={false}
+                            onChange={handleOnChange}
                             onBlur={() => null}
                             onFocus={() => null}
                         />
                     </FormControl>
-                    : <Typography>{phone}</Typography>
+                    : <Typography>{mobilePhone}</Typography>
                 }
             </Grid>
             <Grid item xs align="left" className={classes.text}>
                 {editMode
                     ? <FormControl  style={{ paddingRight: '38px' }}>
                         <Input
+                            name="salary"
                             data-test-id="employee-list-item-salary"
                             inputProps={{ style: { paddingTop: 0 } }}
                             value={salary}
                             disabled={false}
+                            onChange={handleOnChange}
                             onBlur={() => null}
                             onFocus={() => null}
                         />
@@ -93,7 +121,7 @@ const EmployeeListItem = ({ name, email, dateOfBirth, phone, salary, editMode, h
                 <Button
                     variant="outlined"
                     style={{ height: '1.5em' }}
-                    onClick={handleEditMode}
+                    onClick={editMode ? handleOnSubmit : handleEditMode}
                     disabled={isAnyValueEmpty}
                 >
                     {editMode ? 'Submit' : 'Edit'}
@@ -101,6 +129,7 @@ const EmployeeListItem = ({ name, email, dateOfBirth, phone, salary, editMode, h
                 <Button
                     variant="outlined"
                     style={{ height: '1.5em', marginLeft: '1em', color: 'orange' }}
+                    onClick={handleOnRemove}
                 >
                     Remove
                 </Button>

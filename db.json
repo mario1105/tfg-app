@@ -1,0 +1,79 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "test@test.com",
+      "password": "test123",
+      "role": "admin",
+      "name": "Mario"
+    },
+    {
+      "id": 2,
+      "email": "test1@test.com",
+      "password": "test123",
+      "role": "associate",
+      "name": "Mario"
+    },
+    {
+      "id": 3,
+      "email": "test2@test.com",
+      "password": "test123",
+      "role": "user",
+      "name": "Mario"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "firstName": "Mario",
+      "lastName": "Jimenez",
+      "email": "mario@gmail.com",
+      "dateOfBirth": "11/05/1995",
+      "mobilePhone": "666555444",
+      "salary": "355000"
+    },
+    {
+      "id": 2,
+      "firstName": "Daniel",
+      "lastName": "Gomez",
+      "email": "daniel@gmail.com",
+      "dateOfBirth": "19/11/1992",
+      "mobilePhone": "612345632",
+      "salary": "42000"
+    },
+    {
+      "id": 3,
+      "firstName": "Carlos",
+      "lastName": "Lopez",
+      "email": "carlos@gmail.com",
+      "dateOfBirth": "25/02/1996",
+      "mobilePhone": "692746285",
+      "salary": "30000"
+    },
+    {
+      "firstName": "Pablo",
+      "lastName": "Calderon",
+      "email": "testingreg@treg.com",
+      "dateOfBirth": "18/09/1997",
+      "mobilePhone": "649385029",
+      "salary": "60000",
+      "id": 4
+    },
+    {
+      "firstName": "Andrea",
+      "lastName": "Sanchez",
+      "email": "andrea@tfg.com",
+      "dateOfBirth": "15/09/1987",
+      "mobilePhone": "602957389",
+      "salary": "50000",
+      "id": 6
+    }
+  ]
+}

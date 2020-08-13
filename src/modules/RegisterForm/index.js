@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import * as R from 'ramda'
 import RegisterForm from './RegisterForm'
 import validation from './validation'
 
@@ -12,7 +13,8 @@ const RegisterFormContainer = ({location}) => {
         mobilePhone: '',
         day: '',
         month: '',
-        year: ''
+        year: '',
+        salary: ''
     })
 
     const [errors, setErrors] = useState({
@@ -22,7 +24,8 @@ const RegisterFormContainer = ({location}) => {
         mobilePhone: false,
         day: false,
         month: false,
-        year: false
+        year: false,
+        salary: false
     })
 
     const [loading, setLoading] = useState(false)
@@ -41,7 +44,25 @@ const RegisterFormContainer = ({location}) => {
         setRequestError(false)
 
         setLoading(true)
-       // post request to backend
+        const options = {
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify({
+                firstName: fields.firstName,
+                lastName: fields.lastName,
+                email: fields.email,
+                dateOfBirth: R.join('/', [fields.day, fields.month, fields.year]),
+                mobilePhone: fields.mobilePhone,
+                salary: fields.salary
+            })
+        }
+
+        await fetch(`http://localhost:3001/employees`, options)
+        setLoading(false)
+        setConfirmationView(true)
     }
 
     return (

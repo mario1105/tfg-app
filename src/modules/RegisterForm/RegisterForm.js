@@ -37,8 +37,9 @@ const RegisterForm = ({
       <Grid item className={classes.card} style={{ marginBottom: '1em' }}>
           {confirmationView
             ? (
-              <Grid data-test-id="registration-completed-view" style={{ margin: '1em' }}>
-                <Typography variant="h5">Registration successfully completed</Typography>
+              <Grid data-test-id="registration-completed-view" style={{ margin: '1em', display: 'flex', flexDirection: 'column' }}>
+                <Typography style={{ color: 'white' }}>Registration successfully completed</Typography>
+                <ReturnButton previousRoute="dashboard" user={user} style={{ marginTop: '2em' }} />
               </Grid>
             )
             : (
@@ -117,6 +118,18 @@ const RegisterForm = ({
                   style={{ paddingRight: '38px' }}
                 />
 
+                <FormControl error={!!errors.salary} className={classes.formControl} style={{ paddingRight: '38px' }}>
+                  <InputLabel htmlFor="my-input">Salary</InputLabel>
+                  <Input
+                      data-test-id="registration-form-salary-input"
+                      autoComplete="off"
+                      value={fields.salary}
+                      onChange={handleFieldsChange('salary')}
+                      onBlur={() => handleFieldsErrors('salary')}
+                      onFocus={() => resetErrors('salary')}
+                  />
+                  {!!errors.salary && <FormHelperText data-test-id="registration-form-salary-error">{errors.salary}</FormHelperText>}
+                </FormControl>
                 <Button
                   data-test-id="registration-form-register-button"
                   disabled={!!(loading || validationError || emptyField)}
