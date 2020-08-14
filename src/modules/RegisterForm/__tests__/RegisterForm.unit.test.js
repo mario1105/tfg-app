@@ -43,7 +43,7 @@ const renderComponent = (newProps) => {
 }
 
 let wrapper
-describe('RegisterForm', () => {
+describe('RegisterForm Unit Tests', () => {
   describe('when there are no errors', () => {
     beforeEach(() => {
       wrapper = renderComponent()

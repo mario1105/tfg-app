@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`RegisterForm when there are errors renders as expected 1`] = `ShallowWrapper {}`;
-
-exports[`RegisterForm when there are no errors renders as expected 1`] = `ShallowWrapper {}`;

@@ -3,10 +3,10 @@ import {
     Typography, makeStyles, Input, FormControl, InputLabel, FormHelperText, Button
 } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
     loginBox: {
-        backgroundColor: theme.app.background['300'],
-        padding: theme.spacing(7),
+        backgroundColor: '#213b58',
+        padding: '56px',
         borderRadius: 10,
         margin: '10em 40em 10em 40em',
         maxHeight: '176px'
@@ -29,8 +29,6 @@ const Login = ({email, password, currentUser, handleEmailChange, handlePasswordC
                             value={email}
                             disabled={false}
                             onChange={handleEmailChange}
-                            onBlur={() => null}
-                            onFocus={() => null}
                         />
                     </FormControl>
                     <FormControl error={!currentUser}  style={{ paddingRight: '38px' }}>
@@ -42,13 +40,12 @@ const Login = ({email, password, currentUser, handleEmailChange, handlePasswordC
                             value={password}
                             disabled={false}
                             onChange={handlePasswordChange}
-                            onBlur={() => null}
-                            onFocus={() => null}
                         />
                         {!currentUser && <FormHelperText data-test-id="login-form-error">Email and/or password does not match</FormHelperText>}
                     </FormControl>
                 </form>
                 <Button
+                    data-test-id="login-form-sign-in-button"
                     fullWidth
                     disabled={!email.length || !password.length}
                     variant="contained"

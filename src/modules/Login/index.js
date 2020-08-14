@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import * as R from 'ramda'
-
+import usersService from "../../services/usersService"
 import Login from "./Login";
 
 const LoginContainer = () => {
@@ -9,33 +9,23 @@ const LoginContainer = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [currentUser, setCurrentUser] = useState({})
-    const handleEmailChange = e => setEmail(e.currentTarget.value)
-    const handlePasswordChange = e => setPassword(e.currentTarget.value)
+    const handleEmailChange = e => setEmail(e.target.value)
+    const handlePasswordChange = e => setPassword(e.target.value)
 
-    // const options = {
-    //     headers: {
-    //         Accept: 'application/json',
-    //         'Content-Type': 'application/json'
-    //     },
-    //     method: 'POST'
-    // }
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('http://localhost:3001/users', { method: 'GET' }
-            ).then(response => response.json())
+            const response = await usersService.getUsers()
             setUsers(response)
         }
         fetchData()
     }, [])
 
     const getCurrentUser = users => {
-        let currentUser
+        let currentUser = null
         users.forEach(user => {
             if(!currentUser){
                 if (user.email === email && user.password === password)
                     currentUser = {...currentUser, email, password, ...user}
-                else
-                    currentUser = null
             }
         })
         return currentUser
@@ -47,7 +37,7 @@ const LoginContainer = () => {
 
     return (
         currentUser?.email
-            ? <Redirect to={{ pathname: '/dashboard', state: R.dissoc('password', currentUser) }} />
+            ? <Redirect from={'/'} to={{ pathname: '/dashboard', state: R.dissoc('password', currentUser) }} />
             : <Login
                 email={email}
                 password={password}
