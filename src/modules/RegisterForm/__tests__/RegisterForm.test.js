@@ -7,28 +7,48 @@ import employeesService from "../../../services/employeesService"
 import flushPromises from '../../../utils/flushPromises'
 import actImmediate from "../../../utils/actInmediate"
 import RegisterFormContainer from '../../RegisterForm'
-import {
-  findFormRegisterButton,
-  findRegistrationCompletedView,
-  findFormEmailInput,
-  findFormEmailError,
-  findFormFirstNameInput,
-  findFormFirstNameError,
-  findFormLastNameInput,
-  findFormLastNameError,
-  findFormMobilePhoneInput,
-  findFormMobilePhoneError,
-  findFormMobilePhoneExpansionField,
-  findFormMobilePhoneExpansionFieldPanelSummary,
-  findDateFieldDayFormControl,
-  findDateFieldDayInput,
-  findDateFieldMonthFormControl,
-  findDateFieldMonthInput,
-  findDateFieldYearFormControl,
-  findDateFieldYearInput,
-  findFormSalaryInput,
-  findFormSalaryError
-} from './registerFormTestUtils'
+
+const findFormRegisterButton = (wrapper) => wrapper.find('[data-test-id~="registration-form-register-button"]').hostNodes();
+
+const findRegistrationCompletedView = (wrapper) => wrapper.find('[data-test-id~="registration-completed-view"]').hostNodes();
+
+const findFormEmailInput = (wrapper) => wrapper.find('[data-test-id~="registration-form-email-input"]').find('input');
+
+const findFormEmailError = (wrapper) => wrapper.find('[data-test-id~="registration-form-email-error"]').hostNodes();
+
+const findFormFirstNameInput = (wrapper) => wrapper.find('[data-test-id~="registration-form-first-name-input"]').find('input');
+
+const findFormFirstNameError = (wrapper) => wrapper.find('[data-test-id~="registration-form-first-name-error"]').hostNodes();
+
+const findFormLastNameInput = (wrapper) => wrapper.find('[data-test-id~="registration-form-last-name-input"]').find('input');
+
+const findFormLastNameError = (wrapper) => wrapper.find('[data-test-id~="registration-form-last-name-error"]').hostNodes();
+
+const findFormMobilePhoneInput = (wrapper) => wrapper.find('[data-test-id~="registration-form-mobile-phone-input"]').find('input');
+
+const findFormMobilePhoneError = (wrapper) => wrapper.find('[data-test-id~="registration-form-mobile-phone-error"]').hostNodes();
+
+const findFormMobilePhoneExpansionField = (wrapper) => wrapper.find('[data-test-id~="registration-form-mobile-phone-expansion-field"]').at(2);
+
+const findFormMobilePhoneExpansionFieldPanelSummary = (wrapper) => wrapper
+    .find('[data-test-id~="registration-form-mobile-phone-expansion-field"]')
+    .find('[data-test-id~="expansion-panel-summary"]').hostNodes();
+
+const findDateFieldDayFormControl = (wrapper) => wrapper.find('[data-test-id~="date-field-day-form-control"]').first();
+
+const findDateFieldDayInput = (wrapper) => wrapper.find('[data-test-id~="date-field-day-input"]').find('input');
+
+const findDateFieldMonthFormControl = (wrapper) => wrapper.find('[data-test-id~="date-field-month-form-control"]').first();
+
+const findDateFieldMonthInput = (wrapper) => wrapper.find('[data-test-id~="date-field-month-input"]').find('input');
+
+const findDateFieldYearFormControl = (wrapper) => wrapper.find('[data-test-id~="date-field-year-form-control"]').first();
+
+const findDateFieldYearInput = (wrapper) => wrapper.find('[data-test-id~="date-field-year-input"]').find('input');
+
+const findFormSalaryInput = (wrapper) => wrapper.find('[data-test-id~="registration-form-salary-input"]').find('input');
+
+const findFormSalaryError = (wrapper) => wrapper.find('[data-test-id~="registration-form-salary-error"]').hostNodes();
 
 const renderUi = () => mount(
     <MemoryRouter>

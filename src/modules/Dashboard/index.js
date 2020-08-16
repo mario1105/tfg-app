@@ -16,7 +16,7 @@ const DashboardContainer = ({ location }) => {
 
     return (
         user && !nextRoute
-            ? <Dashboard user={user} nextRoute={nextRoute} handleNextRoute={handleNextRoute} />
+            ? <Dashboard user={user} handleNextRoute={handleNextRoute} />
             : <DashboardRouter nextRoute={nextRoute} user={user} />
     )
 }

@@ -9,7 +9,7 @@ const setFocus = () => {
   document.getElementById('mobile-phone-input').focus();
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   AccordionStyle: {
     boxShadow: 'none',
     '&:before': {
@@ -22,10 +22,10 @@ const useStyles = makeStyles((theme) => ({
   },
   AccordionSummaryStyle: {
     padding: 0,
-    backgroundColor: `${theme.app.background['300']} !important`
+    backgroundColor: '#213b58 !important'
   },
   AccordionSummaryStyleFocused: {
-    backgroundColor: `${theme.app.background['300']} !important`
+    backgroundColor: '#213b58 !important'
   },
   AccordionSummaryContentStyle: {
     margin: '0 !important'

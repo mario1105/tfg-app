@@ -5,14 +5,16 @@ import { ThemeProvider } from "@material-ui/core/styles"
 import { theme } from "../../../theme"
 import LoginContainer from "../../Login"
 import usersService from "../../../services/usersService"
-import {
-    findSignInButton,
-    findEmailInput,
-    findPasswordInput,
-    findLoginError
-} from "./loginTestsUtils"
 import flushPromises from "../../../utils/flushPromises"
 import actImmediate from "../../../utils/actInmediate"
+
+const findSignInButton = (wrapper) => wrapper.find('[data-test-id~="login-form-sign-in-button"]').hostNodes()
+
+const findEmailInput = (wrapper) => wrapper.find('[data-test-id~="login-form-email-input"]').find('input')
+
+const findPasswordInput = (wrapper) => wrapper.find('[data-test-id~="login-form-password-input"]').find('input')
+
+const findLoginError = (wrapper) => wrapper.find('[data-test-id~="login-form-error"]').hostNodes()
 
 const mockedUsers = [
     {

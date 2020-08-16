@@ -3,10 +3,10 @@ import {
     Typography, makeStyles, Button
 } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
     dashboardBox: {
-        backgroundColor: theme.app.background['300'],
-        padding: theme.spacing(7),
+        backgroundColor: '#213b58',
+        padding: '56px',
         borderRadius: 10,
         margin: '10em 40em 10em 40em',
     }
@@ -24,6 +24,7 @@ const Dashboard = ({ user, handleNextRoute }) => {
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Typography color="primary" variant={'h5'} style={{marginBottom: '2em'}}>Welcome {name}!</Typography>
                 <Button
+                    data-test-id="dashboard-logout-button"
                     variant="contained"
                     onClick={()=> handleNextRoute('login')}
                     style={{ height: '3em', backgroundColor: 'orange'}}
@@ -32,6 +33,7 @@ const Dashboard = ({ user, handleNextRoute }) => {
                 </Button>
             </div>
             <Button
+                data-test-id="dashboard-employees-button"
                 fullWidth
                 variant="contained"
                 color="primary"
@@ -41,6 +43,7 @@ const Dashboard = ({ user, handleNextRoute }) => {
                 Employee list
             </Button>
             <Button
+                data-test-id="dashboard-register-button"
                 fullWidth
                 disabled={registerDisabled}
                 variant="contained"

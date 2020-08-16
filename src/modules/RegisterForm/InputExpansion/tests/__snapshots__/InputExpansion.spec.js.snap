@@ -1,30 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InputExpansion renders as expected 1`] = `
-<WithStyles(ForwardRef(ExpansionPanel))
-  className="makeStyles-expansionPanelStyle-1"
+<WithStyles(ForwardRef(Accordion))
+  className="makeStyles-AccordionStyle-1"
   classes={
     Object {
-      "expanded": "makeStyles-expansionPanelExpandedStyle-2",
+      "expanded": "makeStyles-AccordionExpandedStyle-2",
     }
   }
   expanded={true}
   onChange={[Function]}
   onFocus={[Function]}
 >
-  <WithStyles(ForwardRef(ExpansionPanelSummary))
+  <WithStyles(ForwardRef(AccordionSummary))
     aria-controls="panel1d-content"
-    className="makeStyles-expansionPanelSummaryStyle-3"
+    className="makeStyles-AccordionSummaryStyle-3"
     classes={
       Object {
-        "content": "makeStyles-expansionPanelSummaryContentStyle-5",
-        "expanded": "makeStyles-expansionPanelSummaryExpandedStyle-6",
-        "focused": "makeStyles-expansionPanelSummaryStyleFocused-4",
+        "content": "makeStyles-AccordionSummaryContentStyle-5",
+        "expanded": "makeStyles-AccordionSummaryExpandedStyle-6",
+        "focused": "makeStyles-AccordionSummaryStyleFocused-4",
       }
     }
     data-test-id="expansion-panel-summary"
     expandIcon={
-      <Memo(HelpOutlineIcon)
+      <UNDEFINED
         style={
           Object {
             "color": "#2196f3",
@@ -37,11 +37,11 @@ exports[`InputExpansion renders as expected 1`] = `
     <div
       id="ChildrenMock"
     />
-  </WithStyles(ForwardRef(ExpansionPanelSummary))>
-  <WithStyles(ForwardRef(ExpansionPanelDetails))
+  </WithStyles(ForwardRef(AccordionSummary))>
+  <WithStyles(ForwardRef(AccordionDetails))
     classes={
       Object {
-        "root": "makeStyles-expansionPanelDetails-7",
+        "root": "makeStyles-AccordionDetails-7",
       }
     }
     onClick={[Function]}
@@ -50,6 +50,6 @@ exports[`InputExpansion renders as expected 1`] = `
     <WithStyles(ForwardRef(Typography))>
       content
     </WithStyles(ForwardRef(Typography))>
-  </WithStyles(ForwardRef(ExpansionPanelDetails))>
-</WithStyles(ForwardRef(ExpansionPanel))>
+  </WithStyles(ForwardRef(AccordionDetails))>
+</WithStyles(ForwardRef(Accordion))>
 `;
