@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Employees Unit Tests renders as expected 1`] = `
+<div
+  className="makeStyles-employeesBox-1"
+>
+  <WithStyles(ForwardRef(Typography))
+    style={
+      Object {
+        "color": "white ",
+      }
+    }
+    variant="h5"
+  >
+    Employee List
+  </WithStyles(ForwardRef(Typography))>
+  <EmployeeListContainer />
+  <ReturnButton
+    previousRoute="dashboard"
+    style={
+      Object {
+        "marginTop": "2em",
+      }
+    }
+    user={Object {}}
+  />
+</div>
+`;

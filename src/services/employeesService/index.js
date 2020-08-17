@@ -12,6 +12,31 @@ const employeesService = {
     }
     return await fetch(`${apiEndpoint}/employees`, options).then(response => response.json())
   },
+  editEmployee: async ({ parameters, id }) => {
+    const headers = {
+      ...defaultHeaders,
+    }
+    const optionsPatch = {
+      headers,
+      method: 'PATCH',
+      body: JSON.stringify({
+        ...parameters
+      })
+    }
+
+    await fetch(`${apiEndpoint}/employees/${id}`, optionsPatch)
+  },
+  removeEmployee: async ({ id }) => {
+    const headers = {
+      ...defaultHeaders,
+    }
+    const optionsDelete= {
+      headers,
+      method: 'DELETE',
+    }
+
+    await fetch(`${apiEndpoint}/employees/${id}`, optionsDelete)
+  },
   registerEmployee: async ({ firstName, lastName, email, dateOfBirth, mobilePhone, salary }) => {
     const headers = {
       ...defaultHeaders,

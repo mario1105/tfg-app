@@ -8,17 +8,17 @@ const useStyles = makeStyles(() => ({
     }
 }))
 
-const EmployeeListItem = ({ role, parameters, handleOnChange, editMode, handleOnSubmit, handleEditMode, handleOnRemove }) => {
+const EmployeeListItem = ({ id, role, parameters, handleOnChange, editMode, handleOnSubmit, handleEditMode, handleOnRemove }) => {
     const classes = useStyles()
     const { firstName, lastName, email, dateOfBirth, mobilePhone, salary } = parameters
     const isAnyValueEmpty = R.any(value => !value.length, [firstName, lastName, email, dateOfBirth, mobilePhone, salary])
 
     return (
-        <Grid container>
-            <Grid item xs align="left" className={classes.text}>
+        <Grid data-test-id={`employees-list-item employees-list-item-${id}`} container>
+            <Grid data-test-id={`employees-list-item-${id}-first-name`} item xs align="left" className={classes.text}>
                 <Typography>{firstName}</Typography>
             </Grid>
-            <Grid item xs align="left" className={classes.text}>
+            <Grid data-test-id={`employees-list-item-${id}-last-name`} item xs align="left" className={classes.text}>
                 <Typography>{lastName}</Typography>
             </Grid>
             <Grid item xs align="left" className={classes.text}>
@@ -26,36 +26,30 @@ const EmployeeListItem = ({ role, parameters, handleOnChange, editMode, handleOn
                     ? <FormControl  style={{ paddingRight: '38px' }}>
                         <Input
                             name="email"
-                            data-test-id="employee-list-item-email"
+                            data-test-id={`employees-list-item-${id}-email-input`}
                             inputProps={{ style: { paddingTop: 0 } }}
                             value={email}
-                            disabled={false}
                             onChange={handleOnChange}
-                            onBlur={() => null}
-                            onFocus={() => null}
                         />
                     </FormControl>
-                    : <Typography>{email}</Typography>
+                    : <Typography data-test-id={`employees-list-item-${id}-email`}>{email}</Typography>
                 }
             </Grid>
             <Grid item xs align="left" className={classes.text}>
-                <Typography>{dateOfBirth}</Typography>
+                <Typography data-test-id={`employees-list-item-${id}-date-of-birth`}>{dateOfBirth}</Typography>
             </Grid>
             <Grid item xs align="left" className={classes.text}>
                 {editMode
                     ? <FormControl  style={{ paddingRight: '38px' }}>
                         <Input
                             name="phone"
-                            data-test-id="employee-list-item-phone"
+                            data-test-id={`employees-list-item-${id}-mobile-phone-input`}
                             inputProps={{ style: { paddingTop: 0 } }}
                             value={mobilePhone}
-                            disabled={false}
                             onChange={handleOnChange}
-                            onBlur={() => null}
-                            onFocus={() => null}
                         />
                     </FormControl>
-                    : <Typography>{mobilePhone}</Typography>
+                    : <Typography data-test-id={`employees-list-item-${id}-mobile-phone`}>{mobilePhone}</Typography>
                 }
             </Grid>
             { role !== 'user' &&
@@ -65,21 +59,19 @@ const EmployeeListItem = ({ role, parameters, handleOnChange, editMode, handleOn
                         ? <FormControl  style={{ paddingRight: '38px' }}>
                             <Input
                                 name="salary"
-                                data-test-id="employee-list-item-salary"
+                                data-test-id={`employees-list-item-${id}-salary-input`}
                                 inputProps={{ style: { paddingTop: 0 } }}
                                 value={salary}
-                                disabled={false}
                                 onChange={handleOnChange}
-                                onBlur={() => null}
-                                onFocus={() => null}
                             />
                         </FormControl>
-                        : <Typography>{salary}</Typography>
+                        : <Typography data-test-id={`employees-list-item-${id}-salary`}>{salary}</Typography>
                     }
                 </Grid>
 
                 <Grid item xs align="left" className={classes.text}>
                     <Button
+                        data-test-id={`employees-list-item-${id}-${editMode ? 'submit' : 'edit'}`}
                         variant="outlined"
                         style={{ height: '1.5em', width: '4em' }}
                         onClick={editMode ? handleOnSubmit : handleEditMode}
@@ -89,6 +81,7 @@ const EmployeeListItem = ({ role, parameters, handleOnChange, editMode, handleOn
                     </Button>
                     {role === 'admin' &&
                     <Button
+                        data-test-id={`employees-list-item-${id}-remove`}
                         variant="outlined"
                         style={{ height: '1.5em', width: '5em', marginLeft: '1em', color: 'orange' }}
                         onClick={handleOnRemove}

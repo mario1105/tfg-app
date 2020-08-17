@@ -4,8 +4,8 @@ import ReturnButton from "../../components/ReturnButton";
 import EmployeeList from "./EmployeeList";
 const useStyles = makeStyles(theme => ({
     employeesBox: {
-        backgroundColor: theme.app.background['300'],
-        padding: theme.spacing(7),
+        backgroundColor: '#213b58',
+        padding: '56px',
         borderRadius: 10,
         margin: '10em',
         display: 'flex',
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
 
 const Employees = ({ location }) => {
     const user = location.state
-console.log(user)
+
     const classes = useStyles()
 
     return (

@@ -66,12 +66,17 @@ exports[`InputDate when there are errors renders as expected 1`] = `
       />
     </WithStyles(ForwardRef(FormControl))>
   </div>
-  <Typography
+  <WithStyles(ForwardRef(Typography))
     gutterBottom={true}
+    style={
+      Object {
+        "color": "white",
+      }
+    }
     variant="subtitle2"
   >
     Date of Birth
-  </Typography>
+  </WithStyles(ForwardRef(Typography))>
 </div>
 `;
 
@@ -141,11 +146,16 @@ exports[`InputDate when there are no errors renders as expected 1`] = `
       />
     </WithStyles(ForwardRef(FormControl))>
   </div>
-  <Typography
+  <WithStyles(ForwardRef(Typography))
     gutterBottom={true}
+    style={
+      Object {
+        "color": "white",
+      }
+    }
     variant="subtitle2"
   >
     Date of Birth
-  </Typography>
+  </WithStyles(ForwardRef(Typography))>
 </div>
 `;

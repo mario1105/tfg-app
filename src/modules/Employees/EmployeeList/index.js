@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import * as R from 'ramda'
 import EmployeeList from "./EmployeeList"
+import employeesService from "../../../services/employeesService"
 
 const EmployeeListContainer = ({ role }) => {
     const [employees, setEmployees] = useState([])
@@ -9,8 +10,7 @@ const EmployeeListContainer = ({ role }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('http://localhost:3001/employees', { method: 'GET' }
-            ).then(response => response.json())
+            const response = await employeesService.getEmployees()
             setEmployees(response)
         }
         fetchData()

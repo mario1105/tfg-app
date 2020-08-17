@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmployeeList Unit Tests renders as expected 1`] = `
+<Fragment>
+  <TableRowHeaders
+    headerList={
+      Array [
+        "First Name",
+        "Last Name",
+        "Email",
+        "Date of Birth",
+        "Mobile phone",
+        "Salary",
+        "Actions",
+      ]
+    }
+  />
+  <TableDataRowWrapper
+    key="1"
+  >
+    <EmployeeListItemContainer
+      dateOfBirth="11/05/1995"
+      email="mario@test.com"
+      firstName="Mario"
+      handleRemoveEmployee={[Function]}
+      id={1}
+      lastName="Jimenez"
+      mobilePhone="666555444"
+      role="admin"
+      salary="355000"
+    />
+  </TableDataRowWrapper>
+  <TableDataRowWrapper
+    key="2"
+  >
+    <EmployeeListItemContainer
+      dateOfBirth="19/11/1992"
+      email="daniel@test.com"
+      firstName="Daniel"
+      handleRemoveEmployee={[Function]}
+      id={2}
+      lastName="Gomez"
+      mobilePhone="612345632"
+      role="admin"
+      salary="42000"
+    />
+  </TableDataRowWrapper>
+  <TableDataRowWrapper
+    key="3"
+  >
+    <EmployeeListItemContainer
+      dateOfBirth="25/02/1996"
+      email="carlos@test.com"
+      firstName="Carlos"
+      handleRemoveEmployee={[Function]}
+      id={3}
+      lastName="Lopez"
+      mobilePhone="692746285"
+      role="admin"
+      salary="30000"
+    />
+  </TableDataRowWrapper>
+</Fragment>
+`;
