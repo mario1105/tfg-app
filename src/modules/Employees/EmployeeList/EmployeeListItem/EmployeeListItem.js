@@ -8,7 +8,7 @@ const useStyles = makeStyles(() => ({
     }
 }))
 
-const EmployeeListItem = ({ parameters, handleOnChange, editMode, handleOnSubmit, handleEditMode, handleOnRemove }) => {
+const EmployeeListItem = ({ role, parameters, handleOnChange, editMode, handleOnSubmit, handleEditMode, handleOnRemove }) => {
     const classes = useStyles()
     const { firstName, lastName, email, dateOfBirth, mobilePhone, salary } = parameters
     const isAnyValueEmpty = R.any(value => !value.length, [firstName, lastName, email, dateOfBirth, mobilePhone, salary])
@@ -16,38 +16,10 @@ const EmployeeListItem = ({ parameters, handleOnChange, editMode, handleOnSubmit
     return (
         <Grid container>
             <Grid item xs align="left" className={classes.text}>
-                {editMode
-                    ? <FormControl  style={{ paddingRight: '38px' }}>
-                        <Input
-                            name="firstName"
-                            data-test-id="employee-list-item-first-name"
-                            inputProps={{ style: { paddingTop: 0 } }}
-                            value={firstName}
-                            disabled={false}
-                            onChange={handleOnChange}
-                            onBlur={() => null}
-                            onFocus={() => null}
-                        />
-                    </FormControl>
-                    : <Typography>{firstName}</Typography>
-                }
+                <Typography>{firstName}</Typography>
             </Grid>
             <Grid item xs align="left" className={classes.text}>
-                {editMode
-                    ? <FormControl  style={{ paddingRight: '38px' }}>
-                        <Input
-                            name="lastName"
-                            data-test-id="employee-list-item-last-name"
-                            inputProps={{ style: { paddingTop: 0 } }}
-                            value={lastName}
-                            disabled={false}
-                            onChange={handleOnChange}
-                            onBlur={() => null}
-                            onFocus={() => null}
-                        />
-                    </FormControl>
-                    : <Typography>{lastName}</Typography>
-                }
+                <Typography>{lastName}</Typography>
             </Grid>
             <Grid item xs align="left" className={classes.text}>
                 {editMode
@@ -67,21 +39,7 @@ const EmployeeListItem = ({ parameters, handleOnChange, editMode, handleOnSubmit
                 }
             </Grid>
             <Grid item xs align="left" className={classes.text}>
-                {editMode
-                    ? <FormControl  style={{ paddingRight: '38px' }}>
-                        <Input
-                            name="dateOfBirth"
-                            data-test-id="employee-list-item-dateOfBirth"
-                            inputProps={{ style: { paddingTop: 0 } }}
-                            value={dateOfBirth}
-                            disabled={false}
-                            onChange={handleOnChange}
-                            onBlur={() => null}
-                            onFocus={() => null}
-                        />
-                    </FormControl>
-                    : <Typography>{dateOfBirth}</Typography>
-                }
+                <Typography>{dateOfBirth}</Typography>
             </Grid>
             <Grid item xs align="left" className={classes.text}>
                 {editMode
@@ -100,40 +58,47 @@ const EmployeeListItem = ({ parameters, handleOnChange, editMode, handleOnSubmit
                     : <Typography>{mobilePhone}</Typography>
                 }
             </Grid>
-            <Grid item xs align="left" className={classes.text}>
-                {editMode
-                    ? <FormControl  style={{ paddingRight: '38px' }}>
-                        <Input
-                            name="salary"
-                            data-test-id="employee-list-item-salary"
-                            inputProps={{ style: { paddingTop: 0 } }}
-                            value={salary}
-                            disabled={false}
-                            onChange={handleOnChange}
-                            onBlur={() => null}
-                            onFocus={() => null}
-                        />
-                    </FormControl>
-                    : <Typography>{salary}</Typography>
-                }
-            </Grid>
-            <Grid item xs align="left" className={classes.text}>
-                <Button
-                    variant="outlined"
-                    style={{ height: '1.5em' }}
-                    onClick={editMode ? handleOnSubmit : handleEditMode}
-                    disabled={isAnyValueEmpty}
-                >
-                    {editMode ? 'Submit' : 'Edit'}
-                </Button>
-                <Button
-                    variant="outlined"
-                    style={{ height: '1.5em', marginLeft: '1em', color: 'orange' }}
-                    onClick={handleOnRemove}
-                >
-                    Remove
-                </Button>
-            </Grid>
+            { role !== 'user' &&
+            <>
+                <Grid item xs align="left" className={classes.text}>
+                    {editMode && role === 'admin'
+                        ? <FormControl  style={{ paddingRight: '38px' }}>
+                            <Input
+                                name="salary"
+                                data-test-id="employee-list-item-salary"
+                                inputProps={{ style: { paddingTop: 0 } }}
+                                value={salary}
+                                disabled={false}
+                                onChange={handleOnChange}
+                                onBlur={() => null}
+                                onFocus={() => null}
+                            />
+                        </FormControl>
+                        : <Typography>{salary}</Typography>
+                    }
+                </Grid>
+
+                <Grid item xs align="left" className={classes.text}>
+                    <Button
+                        variant="outlined"
+                        style={{ height: '1.5em', width: '4em' }}
+                        onClick={editMode ? handleOnSubmit : handleEditMode}
+                        disabled={isAnyValueEmpty}
+                    >
+                        {editMode ? 'Submit' : 'Edit'}
+                    </Button>
+                    {role === 'admin' &&
+                    <Button
+                        variant="outlined"
+                        style={{ height: '1.5em', width: '5em', marginLeft: '1em', color: 'orange' }}
+                        onClick={handleOnRemove}
+                    >
+                        Remove
+                    </Button>
+                    }
+                </Grid>
+            </>
+            }
         </Grid>
     )
 }

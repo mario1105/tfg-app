@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import * as R from 'ramda'
 import EmployeeList from "./EmployeeList"
 
-const EmployeeListContainer = ( ) => {
+const EmployeeListContainer = ({ role }) => {
     const [employees, setEmployees] = useState([])
 
     const handleRemoveEmployee = (id) => setEmployees(R.filter((employee) => employee.id !== id, employees))
@@ -17,7 +17,7 @@ const EmployeeListContainer = ( ) => {
     }, [])
 
     return (
-        <EmployeeList employees={employees} handleRemoveEmployee={handleRemoveEmployee} />
+        <EmployeeList role={role} employees={employees} handleRemoveEmployee={handleRemoveEmployee} />
     )
 }
 

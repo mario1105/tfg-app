@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import EmployeeListItem from "./EmployeeListItem"
 
-const EmployeeListItemContainer = ({ id, firstName, lastName, email, dateOfBirth, mobilePhone, salary, handleRemoveEmployee }) => {
+const EmployeeListItemContainer = ({ id, role, firstName, lastName, email, dateOfBirth, mobilePhone, salary, handleRemoveEmployee }) => {
     const [parameters, setParameters] = useState({firstName, lastName, email, dateOfBirth, mobilePhone, salary})
     const [editMode, setEditMode] = useState(false)
 
@@ -45,6 +45,7 @@ const EmployeeListItemContainer = ({ id, firstName, lastName, email, dateOfBirth
 
     return (
         <EmployeeListItem
+            role={role}
             parameters={parameters}
             editMode={editMode}
             handleOnChange={handleOnChange}
