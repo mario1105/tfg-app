@@ -56,7 +56,7 @@ const InputExpansion = ({
       <AccordionSummary
         data-test-id="expansion-panel-summary"
         className={classes.AccordionSummaryStyle}
-        expandIcon={<HelpOutlineIcon style={{ color: blue[500] }} />}
+        expandIcon={<HelpOutlineIcon data-test-id="expansion-panel-button" style={{ color: blue[500] }} />}
         aria-controls="panel1d-content"
         id="panel1d-header"
         classes={{
@@ -72,7 +72,7 @@ const InputExpansion = ({
         onFocus={() => null}
         onClick={() => null}
       >
-        <Typography>
+        <Typography data-test-id="expansion-panel-content">
           {content}
         </Typography>
       </AccordionDetails>

@@ -25,6 +25,7 @@ exports[`InputExpansion renders as expected 1`] = `
     data-test-id="expansion-panel-summary"
     expandIcon={
       <UNDEFINED
+        data-test-id="expansion-panel-button"
         style={
           Object {
             "color": "#2196f3",
@@ -47,7 +48,9 @@ exports[`InputExpansion renders as expected 1`] = `
     onClick={[Function]}
     onFocus={[Function]}
   >
-    <WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="expansion-panel-content"
+    >
       content
     </WithStyles(ForwardRef(Typography))>
   </WithStyles(ForwardRef(AccordionDetails))>

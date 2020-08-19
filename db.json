@@ -69,20 +69,11 @@
     {
       "firstName": "Andrea",
       "lastName": "Sanchez",
-      "email": "andrea@tfg.com",
-      "dateOfBirth": "15/09/1987",
-      "mobilePhone": "602957389",
-      "salary": "50000",
+      "email": "andrea@sss.com",
+      "dateOfBirth": "11/11/1991",
+      "mobilePhone": "615367119",
+      "salary": "70000",
       "id": 6
-    },
-    {
-      "firstName": "Lucas",
-      "lastName": "Perez",
-      "email": "lucas@luctests.com",
-      "dateOfBirth": "19/06/1987",
-      "mobilePhone": "649284674",
-      "salary": "75000",
-      "id": 7
     }
   ]
 }

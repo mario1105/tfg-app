@@ -4,7 +4,7 @@ import TableRowHeaders from "../../../components/TableRowHeaders"
 import EmployeeListItemContainer from "./EmployeeListItem"
 
 const EmployeeList = ({ role, employees, handleRemoveEmployee }) => {
-    const headers = ['First Name', 'Last Name', 'Email', 'Date of Birth', 'Mobile phone']
+    const headers = ['First Name', 'Last Name', 'Email', 'Date of Birth', 'Mobile Phone']
     return (
         <>
             <TableRowHeaders

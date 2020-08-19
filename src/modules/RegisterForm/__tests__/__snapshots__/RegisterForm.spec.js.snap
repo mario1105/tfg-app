@@ -1,0 +1,434 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegisterForm Unit Tests when there are errors renders as expected 1`] = `
+<WithStyles(ForwardRef(Grid))
+  alignItems="center"
+  container={true}
+  direction="column"
+  style={
+    Object {
+      "marginTop": "2em",
+    }
+  }
+>
+  <WithStyles(ForwardRef(Grid))
+    className="makeStyles-card-1"
+    item={true}
+    style={
+      Object {
+        "marginBottom": "1em",
+      }
+    }
+  >
+    <form
+      className="makeStyles-form-2"
+      data-test-id="registration-form"
+      noValidate={true}
+      onSubmit={[Function]}
+    >
+      <WithStyles(ForwardRef(FormControl))
+        className="makeStyles-formControl-3"
+        error={true}
+        style={
+          Object {
+            "paddingRight": "38px",
+          }
+        }
+      >
+        <WithStyles(ForwardRef(InputLabel))
+          htmlFor="my-input"
+        >
+          Email address
+        </WithStyles(ForwardRef(InputLabel))>
+        <WithStyles(ForwardRef(Input))
+          autoComplete="off"
+          data-test-id="registration-form-email-input"
+          onBlur={[Function]}
+          onChange={null}
+          onFocus={[Function]}
+          value="mario.jimenez@theshopworks.com"
+        />
+        <WithStyles(ForwardRef(FormHelperText))
+          data-test-id="registration-form-email-error"
+        >
+          Email error
+        </WithStyles(ForwardRef(FormHelperText))>
+      </WithStyles(ForwardRef(FormControl))>
+      <WithStyles(ForwardRef(FormControl))
+        className="makeStyles-formControl-3"
+        error={true}
+        style={
+          Object {
+            "paddingRight": "38px",
+          }
+        }
+      >
+        <WithStyles(ForwardRef(InputLabel))
+          htmlFor="my-input"
+        >
+          First name
+        </WithStyles(ForwardRef(InputLabel))>
+        <WithStyles(ForwardRef(Input))
+          autoComplete="off"
+          data-test-id="registration-form-first-name-input"
+          onBlur={[Function]}
+          onChange={null}
+          onFocus={[Function]}
+          value="Mario"
+        />
+        <WithStyles(ForwardRef(FormHelperText))
+          data-test-id="registration-form-first-name-error"
+        >
+          First name error
+        </WithStyles(ForwardRef(FormHelperText))>
+      </WithStyles(ForwardRef(FormControl))>
+      <WithStyles(ForwardRef(FormControl))
+        className="makeStyles-formControl-3"
+        error={true}
+        style={
+          Object {
+            "paddingRight": "38px",
+          }
+        }
+      >
+        <WithStyles(ForwardRef(InputLabel))
+          htmlFor="my-input"
+        >
+          Last name
+        </WithStyles(ForwardRef(InputLabel))>
+        <WithStyles(ForwardRef(Input))
+          autoComplete="off"
+          data-test-id="registration-form-last-name-input"
+          onBlur={[Function]}
+          onChange={null}
+          onFocus={[Function]}
+          value="Jimenez"
+        />
+        <WithStyles(ForwardRef(FormHelperText))
+          data-test-id="registration-form-last-name-error"
+        >
+          Last name error
+        </WithStyles(ForwardRef(FormHelperText))>
+      </WithStyles(ForwardRef(FormControl))>
+      <InputExpansionContainer
+        content={
+          <ForwardRef(WithStyles)
+            component="span"
+            variant="subtitle2"
+          >
+            We require a Spanish phone number for additional contact details
+          </ForwardRef(WithStyles)>
+        }
+        data-test-id="registration-form-mobile-phone-expansion-field"
+      >
+        <WithStyles(ForwardRef(FormControl))
+          className="makeStyles-formControl-3"
+          data-test-id="registration-form-mobile-phone-field"
+          error={true}
+        >
+          <WithStyles(ForwardRef(InputLabel))
+            htmlFor="my-input"
+          >
+            Mobile phone
+          </WithStyles(ForwardRef(InputLabel))>
+          <WithStyles(ForwardRef(Input))
+            autoComplete="off"
+            data-test-id="registration-form-mobile-phone-input"
+            id="mobile-phone-input"
+            onBlur={[Function]}
+            onChange={null}
+            onFocus={[Function]}
+            value="+444444444444"
+          />
+          <WithStyles(ForwardRef(FormHelperText))
+            data-test-id="registration-form-mobile-phone-error"
+          >
+            Mobile phone error
+          </WithStyles(ForwardRef(FormHelperText))>
+        </WithStyles(ForwardRef(FormControl))>
+      </InputExpansionContainer>
+      <InputDate
+        date={
+          Object {
+            "day": "11",
+            "month": "11",
+            "year": "1999",
+          }
+        }
+        errors={
+          Object {
+            "day": "Day error",
+            "month": "Month error",
+            "year": "Year error",
+          }
+        }
+        handleFieldsChange={[Function]}
+        handleFieldsErrors={[Function]}
+        resetErrors={[Function]}
+        style={
+          Object {
+            "paddingRight": "38px",
+          }
+        }
+      />
+      <WithStyles(ForwardRef(FormControl))
+        className="makeStyles-formControl-3"
+        error={true}
+        style={
+          Object {
+            "paddingRight": "38px",
+          }
+        }
+      >
+        <WithStyles(ForwardRef(InputLabel))
+          htmlFor="my-input"
+        >
+          Salary
+        </WithStyles(ForwardRef(InputLabel))>
+        <WithStyles(ForwardRef(Input))
+          autoComplete="off"
+          data-test-id="registration-form-salary-input"
+          onBlur={[Function]}
+          onChange={null}
+          onFocus={[Function]}
+          value="50000"
+        />
+        <WithStyles(ForwardRef(FormHelperText))
+          data-test-id="registration-form-salary-error"
+        >
+          Salary error
+        </WithStyles(ForwardRef(FormHelperText))>
+      </WithStyles(ForwardRef(FormControl))>
+      <WithStyles(ForwardRef(Button))
+        color="primary"
+        data-test-id="registration-form-register-button"
+        disabled={true}
+        fullWidth={true}
+        onClick={[Function]}
+        style={
+          Object {
+            "marginTop": "3em",
+          }
+        }
+        type="submit"
+        variant="outlined"
+      >
+        Register
+      </WithStyles(ForwardRef(Button))>
+      <ReturnButton
+        previousRoute="dashboard"
+        style={
+          Object {
+            "marginTop": "2em",
+          }
+        }
+        user={Object {}}
+      />
+    </form>
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;
+
+exports[`RegisterForm Unit Tests when there are no errors renders as expected 1`] = `
+<WithStyles(ForwardRef(Grid))
+  alignItems="center"
+  container={true}
+  direction="column"
+  style={
+    Object {
+      "marginTop": "2em",
+    }
+  }
+>
+  <WithStyles(ForwardRef(Grid))
+    className="makeStyles-card-1"
+    item={true}
+    style={
+      Object {
+        "marginBottom": "1em",
+      }
+    }
+  >
+    <form
+      className="makeStyles-form-2"
+      data-test-id="registration-form"
+      noValidate={true}
+      onSubmit={[Function]}
+    >
+      <WithStyles(ForwardRef(FormControl))
+        className="makeStyles-formControl-3"
+        error={false}
+        style={
+          Object {
+            "paddingRight": "38px",
+          }
+        }
+      >
+        <WithStyles(ForwardRef(InputLabel))
+          htmlFor="my-input"
+        >
+          Email address
+        </WithStyles(ForwardRef(InputLabel))>
+        <WithStyles(ForwardRef(Input))
+          autoComplete="off"
+          data-test-id="registration-form-email-input"
+          onBlur={[Function]}
+          onChange={null}
+          onFocus={[Function]}
+          value="mario.jimenez@theshopworks.com"
+        />
+      </WithStyles(ForwardRef(FormControl))>
+      <WithStyles(ForwardRef(FormControl))
+        className="makeStyles-formControl-3"
+        error={false}
+        style={
+          Object {
+            "paddingRight": "38px",
+          }
+        }
+      >
+        <WithStyles(ForwardRef(InputLabel))
+          htmlFor="my-input"
+        >
+          First name
+        </WithStyles(ForwardRef(InputLabel))>
+        <WithStyles(ForwardRef(Input))
+          autoComplete="off"
+          data-test-id="registration-form-first-name-input"
+          onBlur={[Function]}
+          onChange={null}
+          onFocus={[Function]}
+          value="Mario"
+        />
+      </WithStyles(ForwardRef(FormControl))>
+      <WithStyles(ForwardRef(FormControl))
+        className="makeStyles-formControl-3"
+        error={false}
+        style={
+          Object {
+            "paddingRight": "38px",
+          }
+        }
+      >
+        <WithStyles(ForwardRef(InputLabel))
+          htmlFor="my-input"
+        >
+          Last name
+        </WithStyles(ForwardRef(InputLabel))>
+        <WithStyles(ForwardRef(Input))
+          autoComplete="off"
+          data-test-id="registration-form-last-name-input"
+          onBlur={[Function]}
+          onChange={null}
+          onFocus={[Function]}
+          value="Jimenez"
+        />
+      </WithStyles(ForwardRef(FormControl))>
+      <InputExpansionContainer
+        content={
+          <ForwardRef(WithStyles)
+            component="span"
+            variant="subtitle2"
+          >
+            We require a Spanish phone number for additional contact details
+          </ForwardRef(WithStyles)>
+        }
+        data-test-id="registration-form-mobile-phone-expansion-field"
+      >
+        <WithStyles(ForwardRef(FormControl))
+          className="makeStyles-formControl-3"
+          data-test-id="registration-form-mobile-phone-field"
+          error={false}
+        >
+          <WithStyles(ForwardRef(InputLabel))
+            htmlFor="my-input"
+          >
+            Mobile phone
+          </WithStyles(ForwardRef(InputLabel))>
+          <WithStyles(ForwardRef(Input))
+            autoComplete="off"
+            data-test-id="registration-form-mobile-phone-input"
+            id="mobile-phone-input"
+            onBlur={[Function]}
+            onChange={null}
+            onFocus={[Function]}
+            value="+444444444444"
+          />
+        </WithStyles(ForwardRef(FormControl))>
+      </InputExpansionContainer>
+      <InputDate
+        date={
+          Object {
+            "day": "11",
+            "month": "11",
+            "year": "1999",
+          }
+        }
+        errors={
+          Object {
+            "day": false,
+            "month": false,
+            "year": false,
+          }
+        }
+        handleFieldsChange={[Function]}
+        handleFieldsErrors={[Function]}
+        resetErrors={[Function]}
+        style={
+          Object {
+            "paddingRight": "38px",
+          }
+        }
+      />
+      <WithStyles(ForwardRef(FormControl))
+        className="makeStyles-formControl-3"
+        error={false}
+        style={
+          Object {
+            "paddingRight": "38px",
+          }
+        }
+      >
+        <WithStyles(ForwardRef(InputLabel))
+          htmlFor="my-input"
+        >
+          Salary
+        </WithStyles(ForwardRef(InputLabel))>
+        <WithStyles(ForwardRef(Input))
+          autoComplete="off"
+          data-test-id="registration-form-salary-input"
+          onBlur={[Function]}
+          onChange={null}
+          onFocus={[Function]}
+          value="50000"
+        />
+      </WithStyles(ForwardRef(FormControl))>
+      <WithStyles(ForwardRef(Button))
+        color="primary"
+        data-test-id="registration-form-register-button"
+        disabled={false}
+        fullWidth={true}
+        onClick={[Function]}
+        style={
+          Object {
+            "marginTop": "3em",
+          }
+        }
+        type="submit"
+        variant="outlined"
+      >
+        Register
+      </WithStyles(ForwardRef(Button))>
+      <ReturnButton
+        previousRoute="dashboard"
+        style={
+          Object {
+            "marginTop": "2em",
+          }
+        }
+        user={Object {}}
+      />
+    </form>
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;

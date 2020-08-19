@@ -1,4 +1,5 @@
 import React from 'react'
+import * as R from 'ramda'
 import { Container, Grid, Typography, makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
@@ -24,13 +25,17 @@ const TableRowHeaders = props => {
             {children || (
                 <Grid container>
                     {headerList.map(
-                        header => (
-                            <Grid item xs align="left" key={header}>
-                                <Typography color="primary" style={{ fontWeight: 400 }}>
-                                    {header}
-                                </Typography>
-                            </Grid>
-                        )
+                        header => {
+                            const formattedHeader = R.replace(/ /g, '-', header.toLowerCase())
+                            return  (
+                                <Grid item xs align="left" key={formattedHeader}>
+                                    <Typography data-test-id={`table-header-${formattedHeader}`} color="primary" style={{ fontWeight: 400 }}>
+                                        {header}
+                                    </Typography>
+                                </Grid>
+                            )
+
+                        }
                     )}
                 </Grid>
             )}

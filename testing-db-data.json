@@ -1,0 +1,52 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "test@admin.com",
+      "password": "test123",
+      "role": "admin",
+      "name": "Mario"
+    },
+    {
+      "id": 2,
+      "email": "test@associate.com",
+      "password": "test123",
+      "role": "associate",
+      "name": "Mario"
+    },
+    {
+      "id": 3,
+      "email": "test@user.com",
+      "password": "test123",
+      "role": "user",
+      "name": "Mario"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "firstName": "Mario",
+      "lastName": "Jimenez",
+      "email": "mario@gmail.com",
+      "dateOfBirth": "11/05/1995",
+      "mobilePhone": "666555444",
+      "salary": "355000"
+    },
+    {
+      "firstName": "Test",
+      "lastName": "E2E",
+      "email": "e2e@testing.com",
+      "dateOfBirth": "11/11/1991",
+      "mobilePhone": "611666116",
+      "salary": "50000",
+      "id": 2
+    }
+  ]
+}

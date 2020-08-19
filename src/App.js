@@ -12,6 +12,7 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom'
+import * as R from "ramda"
 
 const Routes = () => {
   return (
@@ -40,6 +41,21 @@ const Routes = () => {
                 path="/employees"
                 exact
                 component={EmployeeList}
+            />
+            <Route
+                path="/testing-bypass-dashboard/:role"
+                exact
+                component={({match}) => <Redirect to={{ pathname: '/dashboard', state: {name: 'Test', role: match.params.role} }} />}
+            />
+            <Route
+                path="/testing-bypass-employees/:role"
+                exact
+                component={({match}) => <Redirect to={{ pathname: '/employees', state: {name: 'Test', role: match.params.role} }} />}
+            />
+            <Route
+                path="/testing-bypass-register/:role"
+                exact
+                component={({match}) => <Redirect to={{ pathname: '/register', state: {name: 'Test', role: match.params.role} }} />}
             />
         </Switch>
       </Router>

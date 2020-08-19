@@ -18,7 +18,7 @@ const Login = ({email, password, currentUser, handleEmailChange, handlePasswordC
 
     return (
         <div className={classes.loginBox}>
-            <Typography color="primary" variant={'h5'} style={{marginBottom: '2em'}}>Login</Typography>
+            <Typography data-test-id="login-form-header" color="primary" variant={'h5'} style={{marginBottom: '2em'}}>Login</Typography>
             <div style={{ display: 'flex' }}>
                 <form data-test-id="login-form" noValidate onSubmit={() => null}>
                     <FormControl error={!currentUser}  style={{ paddingRight: '38px' }}>

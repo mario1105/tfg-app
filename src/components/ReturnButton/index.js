@@ -19,17 +19,18 @@ const ReturnButton = ({ previousRoute, user, ...props }) => {
 
     return (
         isClicked
-        ?  <Redirect to={{ pathname: `/${previousRoute}`, state: user }} />
-        :  <Button
-            className={classes.button}
-            variant="contained"
-            onClick={()=> handleIsClicked('login')}
-            style={{ height: '2em', backgroundColor: 'gold'}}
-            {...props}
-        >
-            Return to {formattedRoute}
-        </Button>
-)
+            ?  <Redirect to={{ pathname: `/${previousRoute}`, state: user }} />
+            :  <Button
+                data-test-id={`return-to-${previousRoute}-button`}
+                className={classes.button}
+                variant="contained"
+                onClick={()=> handleIsClicked('login')}
+                style={{ height: '2em', backgroundColor: 'gold'}}
+                {...props}
+            >
+                Return to {formattedRoute}
+            </Button>
+    )
 }
 
 export default ReturnButton

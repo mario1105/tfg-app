@@ -1,0 +1,586 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmployeeListItem Unit Tests when the user is an admin when the edit mode is disabled renders as expected 1`] = `
+<WithStyles(ForwardRef(Grid))
+  container={true}
+  data-test-id="employees-list-item employees-list-item-1"
+>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-first-name"
+    >
+      Mario
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-last-name"
+    >
+      Jimenez
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-email"
+    >
+      mario@test.com
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-date-of-birth"
+    >
+      11/05/1995
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-mobile-phone"
+    >
+      666555444
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-salary"
+    >
+      355000
+      €
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Button))
+      data-test-id="employees-list-item-1-edit"
+      disabled={false}
+      onClick={[Function]}
+      style={
+        Object {
+          "height": "1.5em",
+          "width": "4em",
+        }
+      }
+      variant="outlined"
+    >
+      Edit
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      data-test-id="employees-list-item-1-remove"
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "orange",
+          "height": "1.5em",
+          "marginLeft": "1em",
+          "width": "5em",
+        }
+      }
+      variant="outlined"
+    >
+      Remove
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;
+
+exports[`EmployeeListItem Unit Tests when the user is an admin when the edit mode is enabled renders as expected 1`] = `
+<WithStyles(ForwardRef(Grid))
+  container={true}
+  data-test-id="employees-list-item employees-list-item-1"
+>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-first-name"
+    >
+      Mario
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-last-name"
+    >
+      Jimenez
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(FormControl))
+      style={
+        Object {
+          "paddingRight": "38px",
+        }
+      }
+    >
+      <WithStyles(ForwardRef(Input))
+        data-test-id="employees-list-item-1-email-input"
+        inputProps={
+          Object {
+            "style": Object {
+              "paddingTop": 0,
+            },
+          }
+        }
+        name="email"
+        onChange={[Function]}
+        value="mario@test.com"
+      />
+    </WithStyles(ForwardRef(FormControl))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-date-of-birth"
+    >
+      11/05/1995
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(FormControl))
+      style={
+        Object {
+          "paddingRight": "38px",
+        }
+      }
+    >
+      <WithStyles(ForwardRef(Input))
+        data-test-id="employees-list-item-1-mobile-phone-input"
+        inputProps={
+          Object {
+            "style": Object {
+              "paddingTop": 0,
+            },
+          }
+        }
+        name="mobilePhone"
+        onChange={[Function]}
+        value="666555444"
+      />
+    </WithStyles(ForwardRef(FormControl))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(FormControl))
+      style={
+        Object {
+          "paddingRight": "38px",
+        }
+      }
+    >
+      <WithStyles(ForwardRef(Input))
+        data-test-id="employees-list-item-1-salary-input"
+        inputProps={
+          Object {
+            "style": Object {
+              "paddingTop": 0,
+            },
+          }
+        }
+        name="salary"
+        onChange={[Function]}
+        value="355000"
+      />
+    </WithStyles(ForwardRef(FormControl))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Button))
+      data-test-id="employees-list-item-1-submit"
+      disabled={false}
+      onClick={[Function]}
+      style={
+        Object {
+          "height": "1.5em",
+          "width": "4em",
+        }
+      }
+      variant="outlined"
+    >
+      Submit
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      data-test-id="employees-list-item-1-remove"
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "orange",
+          "height": "1.5em",
+          "marginLeft": "1em",
+          "width": "5em",
+        }
+      }
+      variant="outlined"
+    >
+      Remove
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;
+
+exports[`EmployeeListItem Unit Tests when the user is an associate when the edit mode is disabled renders as expected 1`] = `
+<WithStyles(ForwardRef(Grid))
+  container={true}
+  data-test-id="employees-list-item employees-list-item-1"
+>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-first-name"
+    >
+      Mario
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-last-name"
+    >
+      Jimenez
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-email"
+    >
+      mario@test.com
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-date-of-birth"
+    >
+      11/05/1995
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-mobile-phone"
+    >
+      666555444
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-salary"
+    >
+      355000
+      €
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Button))
+      data-test-id="employees-list-item-1-edit"
+      disabled={false}
+      onClick={[Function]}
+      style={
+        Object {
+          "height": "1.5em",
+          "width": "4em",
+        }
+      }
+      variant="outlined"
+    >
+      Edit
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;
+
+exports[`EmployeeListItem Unit Tests when the user is an associate when the edit mode is enabled renders as expected 1`] = `
+<WithStyles(ForwardRef(Grid))
+  container={true}
+  data-test-id="employees-list-item employees-list-item-1"
+>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-first-name"
+    >
+      Mario
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-last-name"
+    >
+      Jimenez
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(FormControl))
+      style={
+        Object {
+          "paddingRight": "38px",
+        }
+      }
+    >
+      <WithStyles(ForwardRef(Input))
+        data-test-id="employees-list-item-1-email-input"
+        inputProps={
+          Object {
+            "style": Object {
+              "paddingTop": 0,
+            },
+          }
+        }
+        name="email"
+        onChange={[Function]}
+        value="mario@test.com"
+      />
+    </WithStyles(ForwardRef(FormControl))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-date-of-birth"
+    >
+      11/05/1995
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(FormControl))
+      style={
+        Object {
+          "paddingRight": "38px",
+        }
+      }
+    >
+      <WithStyles(ForwardRef(Input))
+        data-test-id="employees-list-item-1-mobile-phone-input"
+        inputProps={
+          Object {
+            "style": Object {
+              "paddingTop": 0,
+            },
+          }
+        }
+        name="mobilePhone"
+        onChange={[Function]}
+        value="666555444"
+      />
+    </WithStyles(ForwardRef(FormControl))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-salary"
+    >
+      355000
+      €
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Button))
+      data-test-id="employees-list-item-1-submit"
+      disabled={false}
+      onClick={[Function]}
+      style={
+        Object {
+          "height": "1.5em",
+          "width": "4em",
+        }
+      }
+      variant="outlined"
+    >
+      Submit
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;
+
+exports[`EmployeeListItem Unit Tests when the user is an user renders as expected 1`] = `
+<WithStyles(ForwardRef(Grid))
+  container={true}
+  data-test-id="employees-list-item employees-list-item-1"
+>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-first-name"
+    >
+      Mario
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-last-name"
+    >
+      Jimenez
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-email"
+    >
+      mario@test.com
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-date-of-birth"
+    >
+      11/05/1995
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    align="left"
+    className="makeStyles-text-1"
+    item={true}
+    xs={true}
+  >
+    <WithStyles(ForwardRef(Typography))
+      data-test-id="employees-list-item-1-mobile-phone"
+    >
+      666555444
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;

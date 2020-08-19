@@ -9,7 +9,7 @@ exports[`EmployeeList Unit Tests renders as expected 1`] = `
         "Last Name",
         "Email",
         "Date of Birth",
-        "Mobile phone",
+        "Mobile Phone",
         "Salary",
         "Actions",
       ]

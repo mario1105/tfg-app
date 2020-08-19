@@ -15,11 +15,11 @@ const EmployeeListItem = ({ id, role, parameters, handleOnChange, editMode, hand
 
     return (
         <Grid data-test-id={`employees-list-item employees-list-item-${id}`} container>
-            <Grid data-test-id={`employees-list-item-${id}-first-name`} item xs align="left" className={classes.text}>
-                <Typography>{firstName}</Typography>
+            <Grid item xs align="left" className={classes.text}>
+                <Typography data-test-id={`employees-list-item-${id}-first-name`}>{firstName}</Typography>
             </Grid>
-            <Grid data-test-id={`employees-list-item-${id}-last-name`} item xs align="left" className={classes.text}>
-                <Typography>{lastName}</Typography>
+            <Grid  item xs align="left" className={classes.text}>
+                <Typography data-test-id={`employees-list-item-${id}-last-name`}>{lastName}</Typography>
             </Grid>
             <Grid item xs align="left" className={classes.text}>
                 {editMode
@@ -42,7 +42,7 @@ const EmployeeListItem = ({ id, role, parameters, handleOnChange, editMode, hand
                 {editMode
                     ? <FormControl  style={{ paddingRight: '38px' }}>
                         <Input
-                            name="phone"
+                            name="mobilePhone"
                             data-test-id={`employees-list-item-${id}-mobile-phone-input`}
                             inputProps={{ style: { paddingTop: 0 } }}
                             value={mobilePhone}
@@ -65,7 +65,7 @@ const EmployeeListItem = ({ id, role, parameters, handleOnChange, editMode, hand
                                 onChange={handleOnChange}
                             />
                         </FormControl>
-                        : <Typography data-test-id={`employees-list-item-${id}-salary`}>{salary}</Typography>
+                        : <Typography data-test-id={`employees-list-item-${id}-salary`}>{salary}€</Typography>
                     }
                 </Grid>
 

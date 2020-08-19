@@ -38,7 +38,7 @@ const RegisterForm = ({
           {confirmationView
             ? (
               <Grid data-test-id="registration-completed-view" style={{ margin: '1em', display: 'flex', flexDirection: 'column' }}>
-                <Typography style={{ color: 'white' }}>Registration successfully completed</Typography>
+                <Typography data-test-id="registration-completed-view-title" style={{ color: 'white' }}>Registration successfully completed</Typography>
                 <ReturnButton previousRoute="dashboard" user={user} style={{ marginTop: '2em' }} />
               </Grid>
             )
