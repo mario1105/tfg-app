@@ -78,7 +78,7 @@ describe('Login Integration Test', () => {
             await flushPromises()
         })
 
-        it('shows an error if email/passoword does not match', async () => {
+        it('shows an error if email/password does not match', async () => {
             findEmailInput(wrapper).simulate('change', {
                 target: {
                     value: 'mario@jimenez.com'
@@ -115,3 +115,4 @@ describe('Login Integration Test', () => {
         })
     })
 })
+

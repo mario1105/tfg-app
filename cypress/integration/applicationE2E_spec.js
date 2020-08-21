@@ -17,7 +17,7 @@ describe('End to end tests', () => {
                 cy.visit('http://localhost:3000/login')
             })
 
-            it('renders the Dashboard components', () => {
+            it('renders the Login elements', () => {
                 cy.get('div[data-test-id=login-form-error]').should('not.exist')
                 cy.get('h5[data-test-id=login-form-header]').contains('Login')
                 cy.get('label').contains('Email address')
@@ -38,7 +38,7 @@ describe('End to end tests', () => {
                 cy.get('button[data-test-id=login-form-sign-in-button]').click()
                 cy.contains('Email and/or password does not match')
             })
-            it('can not submit an invalid form (password invalid(', () => {
+            it('can not submit an invalid form (password invalid)', () => {
                 cy.get('div[data-test-id=login-form-email-input]').type(validUser.email)
                 cy.get('div[data-test-id=login-form-password-input]').type(invalidUser.password)
 
@@ -62,7 +62,7 @@ describe('End to end tests', () => {
             beforeEach(() => {
                 cy.visit('http://localhost:3000/testing-bypass-dashboard/admin')
             })
-            it('renders the Dashboard components', () => {
+            it('renders the Dashboard elements', () => {
                 cy.contains(`Welcome ${validUser.name}!`)
                 cy.get('button[data-test-id=dashboard-employees-button]').contains('Employee list')
                 cy.get('button[data-test-id=dashboard-register-button]').contains('Register')
@@ -106,7 +106,7 @@ describe('End to end tests', () => {
             beforeEach(() => {
                 cy.visit('http://localhost:3000/testing-bypass-employees/admin')
             })
-            it('renders the Employee List components', () => {
+            it('renders the Employee List elements', () => {
                 cy.get('p[data-test-id=table-header-first-name]').contains('First Name')
                 cy.get('p[data-test-id=table-header-last-name]').contains('Last Name')
                 cy.get('p[data-test-id=table-header-email]').contains('Email')
@@ -148,11 +148,14 @@ describe('End to end tests', () => {
                 cy.get(`p[data-test-id=employees-list-item-${employees[1].id}-email]`).contains('changed@email.com')
                 cy.get(`p[data-test-id=employees-list-item-${employees[1].id}-mobile-phone]`).contains('666666666')
                 cy.get(`p[data-test-id=employees-list-item-${employees[1].id}-salary]`).contains('11111€')
+                cy.get(`p[data-test-id=employees-list-item-${employees[1].id}-first-name]`).contains(employees[1].firstName)
+                cy.get(`p[data-test-id=employees-list-item-${employees[1].id}-last-name]`).contains(employees[1].lastName)
+                cy.get(`p[data-test-id=employees-list-item-${employees[1].id}-date-of-birth]`).contains(employees[1].dateOfBirth)
             })
             it('can remove an employee', () => {
                 cy.get(`button[data-test-id=employees-list-item-${employees[1].id}-remove]`).click()
 
-                cy.get(`button[data-test-id=employees-list-item-${employees[1].id}]`).should('not.exist')
+                cy.get(`div[data-test-id=employees-list-item-${employees[1].id}]`).should('not.exist')
             })
             it('can return to Dashboard', () => {
                 cy.get('button[data-test-id=return-to-dashboard-button]').click()
@@ -174,7 +177,7 @@ describe('End to end tests', () => {
             beforeEach(() => {
                 cy.visit('http://localhost:3000/testing-bypass-register/admin')
             })
-            it('renders the Register form components', () => {
+            it('renders the Register form elements', () => {
                 cy.get('label').contains('Email address')
                 cy.get('label').contains('First name')
                 cy.get('label').contains('Last name')
@@ -234,7 +237,6 @@ describe('End to end tests', () => {
                 cy.contains(`${newEmployee.day}/${newEmployee.month}/${newEmployee.year}`)
                 cy.contains(newEmployee.mobilePhone)
                 cy.contains(`${newEmployee.salary}€`)
-
             })
 
             it('can return to Dashboard', () => {
@@ -257,7 +259,7 @@ describe('End to end tests', () => {
                 cy.visit('http://localhost:3000/login')
             })
 
-            it('renders the Dashboard components', () => {
+            it('renders the Login elements', () => {
                 cy.get('div[data-test-id=login-form-error]').should('not.exist')
                 cy.get('h5[data-test-id=login-form-header]').contains('Login')
                 cy.get('label').contains('Email address')
@@ -278,7 +280,7 @@ describe('End to end tests', () => {
                 cy.get('button[data-test-id=login-form-sign-in-button]').click()
                 cy.contains('Email and/or password does not match')
             })
-            it('can not submit an invalid form (password invalid(', () => {
+            it('can not submit an invalid form (password invalid)', () => {
                 cy.get('div[data-test-id=login-form-email-input]').type(validUser.email)
                 cy.get('div[data-test-id=login-form-password-input]').type(invalidUser.password)
 
@@ -297,7 +299,7 @@ describe('End to end tests', () => {
             beforeEach(() => {
                 cy.visit('http://localhost:3000/testing-bypass-dashboard/associate')
             })
-            it('renders the Dashboard components', () => {
+            it('renders the Dashboard elements', () => {
                 cy.contains(`Welcome Test!`)
                 cy.get('button[data-test-id=dashboard-employees-button]').contains('Employee list')
                 cy.get('button[data-test-id=dashboard-register-button]').contains('Register')
@@ -340,7 +342,7 @@ describe('End to end tests', () => {
             beforeEach(() => {
                 cy.visit('http://localhost:3000/testing-bypass-employees/associate')
             })
-            it('renders the Employee List components', () => {
+            it('renders the Employee List elements', () => {
                 cy.get('p[data-test-id=table-header-first-name]').contains('First Name')
                 cy.get('p[data-test-id=table-header-last-name]').contains('Last Name')
                 cy.get('p[data-test-id=table-header-email]').contains('Email')
@@ -402,7 +404,7 @@ describe('End to end tests', () => {
                 cy.visit('http://localhost:3000/login')
             })
 
-            it('renders the Dashboard components', () => {
+            it('renders the Login elements', () => {
                 cy.get('div[data-test-id=login-form-error]').should('not.exist')
                 cy.get('h5[data-test-id=login-form-header]').contains('Login')
                 cy.get('label').contains('Email address')
@@ -423,7 +425,7 @@ describe('End to end tests', () => {
                 cy.get('button[data-test-id=login-form-sign-in-button]').click()
                 cy.contains('Email and/or password does not match')
             })
-            it('can not submit an invalid form (password invalid(', () => {
+            it('can not submit an invalid form (password invalid)', () => {
                 cy.get('div[data-test-id=login-form-email-input]').type(validUser.email)
                 cy.get('div[data-test-id=login-form-password-input]').type(invalidUser.password)
 
@@ -442,7 +444,7 @@ describe('End to end tests', () => {
             beforeEach(() => {
                 cy.visit('http://localhost:3000/testing-bypass-dashboard/user')
             })
-            it('renders the Dashboard components', () => {
+            it('renders the Dashboard elements', () => {
                 cy.contains(`Welcome Test!`)
                 cy.get('button[data-test-id=dashboard-employees-button]').contains('Employee list')
                 cy.get('button[data-test-id=dashboard-register-button]').contains('Register')
@@ -485,7 +487,7 @@ describe('End to end tests', () => {
             beforeEach(() => {
                 cy.visit('http://localhost:3000/testing-bypass-employees/user')
             })
-            it('renders the Employee List components', () => {
+            it('renders the Employee List elements', () => {
                 cy.get('p[data-test-id=table-header-first-name]').contains('First Name')
                 cy.get('p[data-test-id=table-header-last-name]').contains('Last Name')
                 cy.get('p[data-test-id=table-header-email]').contains('Email')
@@ -518,5 +520,4 @@ describe('End to end tests', () => {
             })
         })
     })
-
 })
