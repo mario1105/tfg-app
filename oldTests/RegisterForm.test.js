@@ -2,11 +2,11 @@ import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { mount } from 'enzyme'
-import { theme } from '../../../theme'
-import employeesService from "../../../services/employeesService"
-import flushPromises from '../../../utils/flushPromises'
-import actImmediate from "../../../utils/actInmediate"
-import RegisterFormContainer from '../../RegisterForm'
+import { theme } from '../src/theme'
+import employeesService from "../src/services/employeesService"
+import flushPromises from '../src/utils/flushPromises'
+import actImmediate from "../src/utils/actInmediate"
+import RegisterFormContainer from '../src/modules/RegisterForm'
 
 const findFormRegisterButton = (wrapper) => wrapper.find('[data-test-id~="registration-form-register-button"]').hostNodes();
 

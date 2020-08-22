@@ -43,42 +43,18 @@ const renderUi = () => mount(
 
 let wrapper
 describe('Login Integration Test', () => {
-    beforeEach(async () => {
+    beforeEach( () => {
         wrapper = renderUi()
-        await actImmediate(wrapper)
         jest.spyOn(usersService, 'getUsers').mockReturnValue(Promise.resolve(mockedUsers))
     })
 
-    describe('Validation', () => {
-        it('does not show any error by default', () => {
-            expect(findLoginError(wrapper)).toHaveLength(0)
-        })
-        it('shows the Sign In button disabled by default', () => {
-            expect(findSignInButton(wrapper).props().disabled).toBe(true)
-        })
-        it('shows the Sign In button disabled if there is no password', async () => {
-            findEmailInput(wrapper).simulate('change', {
-                target: {
-                    value: 'mario@jimenez.com'
-                },
-            })
-            expect(findSignInButton(wrapper).props().disabled).toBe(true)
-        })
-        it('shows the Sign In button disabled if there is no email', async () => {
-            findPasswordInput(wrapper).simulate('change', {
-                target: {
-                    value: '123qwerty'
-                },
-            })
-            expect(findSignInButton(wrapper).props().disabled).toBe(true)
-        })
-    })
     describe('On submit', () => {
         beforeEach( async () => {
             await flushPromises()
+            wrapper.update()
         })
 
-        it('shows an error if email/password does not match', async () => {
+        it('shows an error if email/password does not match', () => {
             findEmailInput(wrapper).simulate('change', {
                 target: {
                     value: 'mario@jimenez.com'
@@ -95,7 +71,7 @@ describe('Login Integration Test', () => {
 
             expect(findLoginError(wrapper)).toHaveLength(1)
         })
-        it('redirects to dashboard if login details are correct', async () => {
+        it('redirects to dashboard if login details are correct', () => {
             findEmailInput(wrapper).simulate('change', {
                 target: {
                     value: mockedUsers[0].email
@@ -115,4 +91,3 @@ describe('Login Integration Test', () => {
         })
     })
 })
-

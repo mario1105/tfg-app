@@ -12,4 +12,6 @@ const validation = {
   salary: (salary) => ((!/^[0-9]+$/.test(salary)) && 'Salary must be a number')
 }
 
-export default validation;
+export default validation
+
+

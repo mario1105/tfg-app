@@ -27,6 +27,11 @@ const renderComponent = (newProps) => {
 
 let wrapper
 describe('Login Unit Tests', () => {
+    describe('Initial state', () => {
+        it('renders as expected', () => {
+            expect(renderComponent({email: '', password: ''})).toMatchSnapshot()
+        })
+    })
     describe('when there are no errors', () => {
         beforeEach(() => {
             wrapper = renderComponent()
